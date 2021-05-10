@@ -46,7 +46,6 @@ We chose to do our topic on covid just because of how much it has impacted our l
 3. **[COVID-19 in Washington State](https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard)**
   - _URL Link_:  https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard
   - _Description_: The data was collected by the Washington state department of health COVID-10 in Washington State, where it has cases, hospitalizations, deaths, and vaccination by county in a format of XLSX file. Which I then translated into cases.csv file to make further investigation about cases of covid-19 in Washington. The data set talks about the county, cases, age and time.
-
   - _Number of rows_ : 2191
   - _Number of columns_ : 13
   - _Questions_:
