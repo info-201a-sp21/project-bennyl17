@@ -5,7 +5,7 @@ By: Benny Leung, Rami Wallaia, Nathan Tuan Lee, Athiwat Pathomtajeancharoen
 
 We chose to do our topic on covid just because of how much it has impacted our lives this past year. We wanted to research how severe this disease actually is, at many stages throughout this time. As well as the future of covid with people now getting vaccinated and how the vaccine will affect us.
 
-#### Examples of other data driven projects related to this domain
+### Examples of other data driven projects related to this domain
 
 1. **[From predictions to prescriptions: A data-driven response to COVID-19](https://link.springer.com/article/10.1007/s10729-020-09542-0)**
    - **URL Link**: _https://link.springer.com/article/10.1007/s10729-020-09542-0_
@@ -17,7 +17,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
    - **URL Link**: _https://www.nature.com/articles/s41598-021-85496-9_
    - **Description**: This is another data drive project where they use data to help control the pandemic by optimization of methods such as social distancing and logistics. This research was made especially within the United States, to help ease the situation of rapid increase in covid cases. They compared the economic costs of these methods and evaluate them if they are worth it or not.
 
-#### Data-driven questions related to this domain
+### Data-driven questions related to this domain
 
 1. **What state has the most fully vaccinated people?**
    - _Description_: This question can be answered by sorting through and looking at the dataset to see which state has the most fully vaccinated amount of people.
