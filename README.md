@@ -39,7 +39,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
      - Which state has the highest amount of daily vaccinations?
      - Which date had the highest number of vaccinations?
 2. **[Coronavirus (COVID-19) Deaths](https://ourworldindata.org/covid-deaths)**
-   - _URL Link_:https://ourworldindata.org/covid-deaths
+   - _URL Link_: https://ourworldindata.org/covid-deaths
    - _Description_: The data was collected by a team of researchers and statisticians who drew data from a combination of data sources, lab reportings, and disease surveillance. The data is mainly about the deaths from coronavirus, with information about other stuff available through the csv file.
    - _Number of rows_ : 87,093
    - _Number of columns_ : 59
@@ -49,7 +49,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
      - What were the new cases to new deaths ratio?
      - Which country had the highest mortality to cases ratio?
 3. **[COVID-19 in Washington State](https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard)**
-   - _URL Link_:  https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard
+   - _URL Link_: https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard
    - _Description_: The data was collected by the Washington state department of health COVID-10 in Washington State, where it has cases, hospitalizations, deaths, and vaccination by county in a format of XLSX file. Which I then translated into cases.csv file to make further investigation about cases of covid-19 in Washington. The data set talks about the county, cases, age and time.
    - _Number of rows_ : 2191
    - _Number of columns_ : 13
