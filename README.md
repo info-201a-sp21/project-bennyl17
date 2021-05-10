@@ -19,9 +19,9 @@ We chose to do our topic on covid just because of how much it has impacted our l
 1. **What state has the most fully vaccinated people?**
    - _Description_: This question can be answered by sorting through and looking at the dataset to see which state has the most fully vaccinated amount of people.
 2. **Which country had the highest confirmed cases, to death cases ratio?**
-   - _Description_:This question can be answered by analyzing the 2 columns in the dataset, and then dividing confirmed cases by deaths to find the highest ratio.
-3. **When will the rate of covid 19 per population will equal to the rate of vaccination.**
-   - _Description_: In case where there are no columns for rates, then we must mutate a column that will calculate rates of covid and compare it to rate of vaccination to get the exact date.
+   - _Description_: This question can be answered by analyzing the 2 columns in the dataset, and then dividing confirmed cases by deaths to find the highest ratio.
+3. **When will the rate of covid 19 per population will equal to the rate of vaccination?**
+   - _Description_: In cases where there are no columns for rates, we would mutate a column that will calculate rates of covid and compare it to the rate of vaccinations to get the exact date.
 
 # Finding Data
 
