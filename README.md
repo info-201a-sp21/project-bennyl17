@@ -8,8 +8,8 @@ We chose to do our topic on covid just because of how much it has impacted our l
 #### Examples of other data driven projects related to this domain
 
 1. **[From predictions to prescriptions: A data-driven response to COVID-19](https://link.springer.com/article/10.1007/s10729-020-09542-0)**
-   - _URL Link_ : <https://link.springer.com/article/10.1007/s10729-020-09542-0>
-   - _Description_: This paper's goal is to assess the disease as a whole to provide the scientific community about the virus to confidently make the next steps on beating this disease. A part of the paper also assesses how contagious and deadly this virus is as well as helping to inform operational decisions for government officials, making decisions on the next steps for each state in order to operate like normal.
+   - **URL Link**: _https://link.springer.com/article/10.1007/s10729-020-09542-0_
+   - **Description**: This paper's goal is to assess the disease as a whole to provide the scientific community about the virus to confidently make the next steps on beating this disease. A part of the paper also assesses how contagious and deadly this virus is as well as helping to inform operational decisions for government officials, making decisions on the next steps for each state in order to operate like normal.
 2. **[Forecast the dynamics of COVID-19 transmission](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0236386)**
    - **URL Link**: _https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0236386_
    - **Description**: This is a data driven project where they use data to help create a model of covid-19. This includes making predictions of the dynamics of COVID-19 transmission in six countries: China, Italy, Spain, France, Germany, and the USA. Which is then compared to other similar diseases to see if COVID-19 is more extreme or not. These forecasts are useful for planning purposes especially on how to deal with covid.
