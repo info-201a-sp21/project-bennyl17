@@ -1,3 +1,4 @@
+library(knitr)
 WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
 
 summary_df <- WA_df %>%
