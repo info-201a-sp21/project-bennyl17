@@ -10,6 +10,11 @@ source("Scripts/Aggregate Table Script.R")
 ```
 
 ## Summary Information Script
+
+
+
+
+## Aggregate Table Script
 ```{r table, echo = FALSE}
 kable(summary_df, col.names = c("County", "Start of Week date",
                                 "Confirmed Cases", "Ages 0-19", 
@@ -21,19 +26,12 @@ We added this summarized table to show all the times when confirmed cases were a
 
 
 
-## Aggregate Table Script
-
-
-
-
 ## Chart Script 1
 ```{r plot, echo =  FALSE}
 bar_plot
 ```
 
 For our first chart script we chose to do it about what day is most common to get the vaccine. We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our dataset and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
-
-
 
 
 ##  Chart Script 2
