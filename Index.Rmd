@@ -5,7 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("ChartScript1.R")
+source("Scripts/Chart Script 1.R")
 ```
 
 ## Summary Information Script
