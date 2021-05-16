@@ -7,6 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Chart Script 1.R")
 source("Scripts/Aggregate Table Script.R")
+WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
 ```
 
 ## Summary Information Script
@@ -15,14 +16,13 @@ source("Scripts/Aggregate Table Script.R")
 
 
 ## Aggregate Table Script
-```{r table, echo = FALSE}
-kable(summary_df, col.names = c("County", "Start of Week date",
-                                "Confirmed Cases", "Ages 0-19", 
+```{r echo = FALSE, message = FALSE}
+kable(summary_df(WA_df), col.names = c("County","Confirmed Cases", "Ages 0-19", 
                                 "Ages 20-34", "Ages 35-49", "Ages 50-64", 
                                 "Ages 65-79", "Ages 80+"), align = "c")
 ```
 
-We added this summarized table to show all the times when confirmed cases were above 2500 cases. With this, we broke it down by age group to let the audience see what group of people were more likely to get it. We were able to see that people ages 20-34 were more likely to get it compared to every other age group. Also with the weeks with over 2500 confirmed cases, we can see that King county was responsible for every one of those except for one, which was Spokane county.
+We added this summarized table to show the confirm cases in different county within Washington. With this, we broke it down by age group to let the audience see what group of people were more likely to get it. From the table, we were able to identify that King County contain the highest amount of confirm cases. We were able to also see that people ages 20-34 were more likely to get it compared to every other age group (a common trend in almost every county). Surprisingly the Columbia contain the least amount of confirmed cases. Another common trend that we can see from the table is that the ages 80+ group are the least to get covid-19. This is most likely due to because young adult still goes out normally while elders are more likely to stay home. 
 
 
 
