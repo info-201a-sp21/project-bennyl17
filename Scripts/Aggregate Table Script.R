@@ -1,8 +1,19 @@
 library(knitr)
 library(dplyr)
+
 WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
 
-summary_df <- WA_df %>%
-  filter(ConfirmedCases > 2500) %>%
-  select(County, WeekStartDate, ConfirmedCases, Age.0.19, Age.20.34, Age.35.49, 
-         Age.50.64, Age.65.79, Age.80.)
+summary_df <- function(df) {
+  df %>% 
+    group_by(County) %>% 
+    summarise(
+      cases = sum(ConfirmedCases, na.rm = T),
+      Age.0.19 = sum(Age.0.19, na.rm = T), 
+      Age.20.34 = sum(Age.20.34, na.rm = T),  
+      Age.35.49 = sum(Age.35.49, na.rm = T), 
+      Age.50.64 = sum(Age.50.64, na.rm = T),
+      Age.65.79 = sum(Age.65.79, na.rm = T),
+      Age.80. = sum(Age.80., na.rm = T),
+    ) %>% 
+    arrange(-cases)
+}
