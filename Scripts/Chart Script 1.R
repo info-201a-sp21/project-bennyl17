@@ -19,7 +19,7 @@ new_condensed_df$day_name <- factor(new_condensed_df$day_name,
                                            "Thursday", "Friday", "Saturday",
                                            "Sunday"))
 #Bar plot
-bar_plot <- ggplot(data = new_condensed_df) +
+bar_graph <- ggplot(data = new_condensed_df) +
   geom_col(mapping = aes(x = day_name, y = vaccinations, fill = day_name)) +
   scale_fill_manual(values = c("Monday" = "yellow",
                                "Tuesday" = "orange",
@@ -40,4 +40,3 @@ bar_plot <- ggplot(data = new_condensed_df) +
   xlab("Day Name") +
   ylab("Occurences") +
   labs(fill = "Occurences")
-
