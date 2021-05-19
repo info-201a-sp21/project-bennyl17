@@ -40,3 +40,4 @@ bar_plot <- ggplot(data = new_condensed_df) +
   xlab("Day Name") +
   ylab("Occurences") +
   labs(fill = "Occurences")
+
