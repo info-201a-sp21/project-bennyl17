@@ -1,6 +1,4 @@
-library(knitr)
-library(dplyr)
-
+#Need to add comments
 summary_df <- function(df) {
   df %>% 
     group_by(County) %>% 

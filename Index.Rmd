@@ -5,14 +5,19 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(dplyr)
+library(ggplot2)
 knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Summary Information Script.R")
 source("Scripts/Aggregate Table Script.R")
 source("Scripts/Chart Script 1.R")
+source("Scripts/Chart Script 2.R")
+source("Scripts/Chart Script 3.R")
 WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
 covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
-options(scipen=999)
-source("Scripts/Chart Script 3.R")
+vaccinations_df <- read.csv("data/us_state_vaccinations.csv",
+                            stringsAsFactors = FALSE)
+options(scipen=999) # for return integer as a whole
 ```
 
 ## Introduction
@@ -37,7 +42,7 @@ We added this summarized table to show the top ten confirm cases in different co
 
 ## Chart Script 1
 ```{r plot, echo =  FALSE}
-bar_graph
+bar_graph_df(vaccinations_df)
 ```
 
 For our first chart script we chose to do it about what day is most common to get the vaccine. We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our dataset and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
