@@ -3,6 +3,7 @@ title: "Index.Rmd"
 output: html_document
 ---
 
+
 ```{r setup, include=FALSE}
 library(knitr)
 library(dplyr)
@@ -57,4 +58,10 @@ For our first chart script we chose to do it about what day is most common to ge
 
 
 ##  Chart Script 3
+```{r pie plot, echo =  FALSE}
+pie_chart
+```
 
+ 
+
+For our third chart, we decided to go with a pie chart to help display the number of Covid cases within Washington, sorted out by age group. With this chart, we are able to see the difference in the number of cases there are in Washington through different age groups. With this data, we can see that there were a lot less cases in the 65+ age group. We can ask ourselves why we think that it is like this and can conclude through this pandemic, most of the elderly people tend to stay in protecting themselves from this disease. With people in the age group of 20-49, that was more than half the cases and we can assume that their more likely to get it because of school/work that they have to do.
