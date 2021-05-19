@@ -1,4 +1,4 @@
-pie_chart_df <- function(df) {
+
 df <- read.csv("data/WA_COVID19_Cases.csv",
                stringsAsFactors = FALSE)
 library(dplyr)
@@ -34,6 +34,6 @@ pie_chart <- ggplot(new_df, aes(x = "", y = prop, fill = age)) +
   theme_void() +
   geom_text(aes(y = ypos, label = sum_of_cases), color = "black", size = 3) +
   coord_polar("y", start = 180)
-}
+
 
 
