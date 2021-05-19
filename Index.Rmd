@@ -7,6 +7,7 @@ output: html_document
 library(knitr)
 library(dplyr)
 library(ggplot2)
+library(lintr)
 knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Summary Information Script.R")
 source("Scripts/Aggregate Table Script.R")

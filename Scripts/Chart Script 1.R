@@ -5,15 +5,16 @@ bar_graph_df <- function(df) {
   #Condense df
   condensed_df <- updated_df %>%
     select(daily_vaccinations, day_name)
-  
+
   #Condense more getting the sum of each day
   new_condensed_df <- condensed_df %>%
     group_by(day_name) %>%
     summarise(vaccinations = sum(daily_vaccinations, na.rm = T))
   #Sort by weekday
   new_condensed_df$day_name <- factor(new_condensed_df$day_name,
-                                      levels = c("Monday", "Tuesday", "Wednesday",
-                                                 "Thursday", "Friday", "Saturday",
+                                      levels = c("Monday", "Tuesday",
+                                                 "Wednesday", "Thursday",
+                                                 "Friday", "Saturday",
                                                  "Sunday"))
   #Bar plot
   ggplot(data = new_condensed_df) +
