@@ -1,9 +1,6 @@
-setwd("..")
-
+library(dplyr)
 rm(list = ls())
 
-vaccinations_df <- read.csv("data/owid-covid-data.csv",
-                            stringsAsFactors = FALSE)
 ##In the united states
 summary_information <- function(df) {
   result <- list()
@@ -36,9 +33,9 @@ summary_information <- function(df) {
   total_rates <- df %>% 
     filter(location == "United States") %>% 
     select(positive_rate)
-  result$positive_rate <- mean(total_rates$positive_rate, na.rm = T)
+  result$positive_rate <- round(mean(total_rates$positive_rate, na.rm = T)
+                                * 100, 1)
   
   return (result)
 }
 
-summary_information(vaccinations_df)

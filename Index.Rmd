@@ -5,14 +5,20 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-source("Scripts/Chart Script 1.R")
+source("Scripts/Summary Information Script.R")
 source("Scripts/Aggregate Table Script.R")
+source("Scripts/Chart Script 1.R")
 WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
+covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
+options(scipen=999)
 ```
+
+## Introductory Paragraph
+
 
 ## Summary Information Script
 
-
+For the summary information section, we decided to investigate toward the US population in particular. Therefore we use the data set from the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data source containing data about covid-19. The first piece of information that we gain was that the total number of cases in the united states is currently `r summary_information(covid_df)$cases` cases. Where unfortunately `r summary_information(covid_df)$death` lives have passed away due to this pandemic. Even though not everyone was tested yet, so far they have done `r summary_information(covid_df)$test` tests. This resulted in a positive rate of covid from testing of `r summary_information(covid_df)$positive_rate` percents. Despite all the setback from this bad virus, the amount of people who got vaccination was `r summary_information(covid_df)$vaccination`. 
 
 
 ## Aggregate Table Script
