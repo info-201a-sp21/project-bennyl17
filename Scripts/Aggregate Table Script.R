@@ -1,8 +1,6 @@
 library(knitr)
 library(dplyr)
 
-WA_df <- read.csv("data/WA_COVID19_Cases.csv", stringsAsFactors = FALSE)
-
 summary_df <- function(df) {
   df %>% 
     group_by(County) %>% 
@@ -15,5 +13,6 @@ summary_df <- function(df) {
       Age.65.79 = sum(Age.65.79, na.rm = T),
       Age.80. = sum(Age.80., na.rm = T),
     ) %>% 
-    arrange(-cases)
+    arrange(-cases) %>% 
+    top_n(10, cases)
 }
