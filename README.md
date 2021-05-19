@@ -37,7 +37,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
      - With this dataset, we can use it to analyze and answer the first question in the domain of interest: “What state has the most fully vaccinated people?”
      - How has the number of daily vaccinations improved since the first day?
      - Which state has the highest amount of daily vaccinations?
-     - Which date had the highest number of vaccinations?
+     - Which day of the week had the highest number of vaccinations?
 2. **[Coronavirus (COVID-19) Deaths](https://ourworldindata.org/covid-deaths)**
    - _URL Link_: https://ourworldindata.org/covid-deaths
    - _Description_: The data was collected by a team of researchers and statisticians who drew data from a combination of data sources, lab reportings, and disease surveillance. The data is mainly about the deaths from coronavirus, with information about other stuff available through the csv file.
