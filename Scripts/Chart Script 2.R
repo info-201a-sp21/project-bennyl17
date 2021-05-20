@@ -13,5 +13,5 @@ covid_case_to_death_ratio <- function(df) {
     geom_point(mapping = aes(x = new_cases, y = new_deaths, color = continent)) +
     xlab("Cases") +
     ylab("Deaths") +
-    ggtitle("Total Deaths Compares to Total Cases by Country")
+    ggtitle("Total Cases Compared to Total Deaths by Continent")
 }

@@ -41,7 +41,6 @@ kable(summary_df(WA_df), col.names = c("County","Confirmed Cases", "Ages 0-19",
 We added this summarized table to show the top ten confirm cases in different county within Washington. With this, we broke it down by age group to let the audience see what group of people were more likely to get it. From the table, we were able to identify that King County contain the highest amount of confirm cases. We were able to also see that people ages 20-34 were more likely to get it compared to every other age group (a common trend in almost every county). If we were to compare the county between the first and the rest, we will see a significant jump compared to other. As you can see that king county contains almost double of the second place. Another common trend that we can see from the table is that the ages 80+ group are the least to get covid-19. This is most likely due to because young adult still goes out normally while elders are more likely to stay home. 
 
 
-
 ## Chart Script 1
 ```{r plot, echo =  FALSE}
 bar_graph_df(vaccinations_df)
@@ -51,10 +50,11 @@ For our first chart script we chose to do it about what day is most common to ge
 
 
 ##  Chart Script 2
+```{r plot, echo = FALSE}
+covid_deaths(covid_df)
+```
 
-
-
-
+For our second chart script we wanted to use it to analyze the amount of covid cases and deaths around the world. With this ordinal data, we thought it would be best to represent it with a position visualization. We organized the plot to represent the amount of cases, and deaths in each continent. The plot addressed the question of "Which continent had the highest cases to deaths ratio?" And by looking at which continent had the steepest slope. Although Asia might be the continent with the most cases, we can see that South America had the greatest cases to deaths ratio.
 
 
 ##  Chart Script 3
