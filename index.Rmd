@@ -26,10 +26,10 @@ options(knitr.duplicate.label = "allow")
 
 ## Introduction
 
-We chose to do our topic on Covid just because of how much it has impacted our lives this past year. We wanted to research how severe this disease actually is, at many stages throughout this time. As well as the future of Covid with people now getting vaccinated and how the vaccine will affect us. We acquired multiple data sets from deaths across the world, vaccinations in the US, and cases in Washington.
-[website](https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations)
-[ourworldindata](https://ourworldindata.org/coronavirus-source-data)
-[COVID-19 in WA](https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard)
+We chose to do our topic on Covid just because of how much it has impacted our lives this past year. We wanted to research how severe this disease actually is, at many stages throughout this time. As well as the future of Covid with people now getting vaccinated and how the vaccine will affect us. We acquired multiple data sets from deaths across the world, vaccinations in the US, and cases in Washington. Here are our 3 data sources of data for the project:
+[Vaccinations in U.S.](https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations),
+[International Covid Deaths](https://ourworldindata.org/coronavirus-source-data),
+[COVID-19 in WA](https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard).
 
 ## Summary Information
 
