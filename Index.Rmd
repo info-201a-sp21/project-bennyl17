@@ -1,8 +1,9 @@
 ---
-title: "Index.Rmd"
+title: "Covid Project"
+author: "Benny, Nathan, Athiwat, Rami"
+date: "5/20/2021"
 output: html_document
 ---
-
 
 ```{r setup, include=FALSE}
 library(knitr)
