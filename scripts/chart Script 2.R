@@ -1,5 +1,6 @@
-# Orgainzed df with population, cases, and deaths
+# Organized data frame with population, cases, and deaths
 case_death_ratio_march <- function(df) {
+  # Filtering the data so that it will be easy to plot
   updated_df <- df %>%
     filter(continent != "") %>% 
     select(continent, new_cases, new_deaths, date) %>% 
@@ -11,7 +12,8 @@ case_death_ratio_march <- function(df) {
               percentage = round(new_deaths/new_cases * 100, 1),
               .groups = 'drop') %>% 
     mutate(day = as.numeric(format(as.Date(date),"%d")))
-
+  
+  # Plot the graph with trend lines 
   ggplot(data = updated_df) +
     geom_point(mapping = aes(x = day, y = percentage, color = continent)) +
     geom_smooth(mapping = aes(x = day, y = percentage, color = continent),
