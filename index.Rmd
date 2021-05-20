@@ -30,7 +30,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
 
 ## Summary Information Script
 
-For the summary information section, we decided to investigate toward the US population in particular. Therefore we use the data set from the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data source containing data about covid-19. The first piece of information that we gain was that the total number of cases in the united states is currently `r summary_information(covid_df)$cases` cases. Where unfortunately `r summary_information(covid_df)$death` lives have passed away due to this pandemic. Even though not everyone was tested yet, so far they have done `r summary_information(covid_df)$test` tests. This resulted in a positive rate of covid from testing of `r summary_information(covid_df)$positive_rate` percents. Despite all the setback from this bad virus, the amount of people who got vaccination was `r summary_information(covid_df)$vaccination`. 
+For the summary information section, we decided to investigate toward the US population in particular. Therefore we use the data set from the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data source containing data about Covid-19. The first piece of information that we gain was that the total number of cases in the united states is currently `r summary_information(covid_df)$cases` cases. Where unfortunately `r summary_information(covid_df)$death` lives have passed away due to this pandemic. Even though not everyone was tested yet, so far they have done `r summary_information(covid_df)$test` tests. This resulted in a positive rate of covid from testing of `r summary_information(covid_df)$positive_rate` percents. Despite all the setback from this bad virus, the amount of people who got vaccination was `r summary_information(covid_df)$vaccination`. 
 
 ## Aggregate Table Script
 ```{r echo = FALSE, message = FALSE}
@@ -39,7 +39,7 @@ kable(summary_df(WA_df), col.names = c("County","Confirmed Cases", "Ages 0-19",
                                 "Ages 65-79", "Ages 80+"), align = "c")
 ```
 
-We added this summarized table to show the top ten confirm cases in different county within Washington. With this, we broke it down by age group to let the audience see what group of people were more likely to get it. From the table, we were able to identify that King County contain the highest amount of confirm cases. We were able to also see that people ages 20-34 were more likely to get it compared to every other age group (a common trend in almost every county). If we were to compare the county between the first and the rest, we will see a significant jump compared to other. As you can see that king county contains almost double of the second place. Another common trend that we can see from the table is that the ages 80+ group are the least to get covid-19. This is most likely due to because young adult still goes out normally while elders are more likely to stay home. 
+We added this summarized table to show the top ten confirm cases in different county within Washington. With this, we broke it down by age group to let the audience see what group of people were more likely to get it. From the table, we were able to identify that King County contain the highest amount of confirm cases. We were able to also see that people ages 20-34 were more likely to get it compared to every other age group (a common trend in almost every county). If we were to compare the county between the first and the rest, we will see a significant jump compared to other. As you can see that king county contains almost double of the second place. Another common trend that we can see from the table is that the ages 80+ group are the least to get Covid-19. This is most likely due to because young adult still goes out normally while elders are more likely to stay home. 
 
 
 ## Chart Script 1
@@ -47,7 +47,7 @@ We added this summarized table to show the top ten confirm cases in different co
 bar_graph_df(vaccinations_df)
 ```
 
-For our first chart script we chose to do it about what day is most common to get the vaccine. We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our dataset and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
+For our first chart script we chose to do it about what day is most common to get the vaccine. We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our data set and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
 
 
 ##  Chart Script 2
