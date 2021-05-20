@@ -1,4 +1,5 @@
-#Need to add comments
+# Create a aggregate table to summarize the top ten county of the most cases 
+# within the state Washington.
 summary_df <- function(df) {
   df %>%
     group_by(County) %>%

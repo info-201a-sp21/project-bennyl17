@@ -1,17 +1,18 @@
 bar_graph_df <- function(df) {
-  #Get day of week
+  # Updating the data frame so that it would work well with the bar plot
   updated_df <- df %>%
     mutate(day_name = weekdays(as.Date(date))) %>%
-    select(daily_vaccinations, day_name) %>%
+    # select(daily_vaccinations, day_name) %>%
     group_by(day_name) %>%
     summarise(vaccinations = sum(daily_vaccinations, na.rm = T))
     
+  # Factor the date to make sure it is in the correct level. 
   updated_df$day_name <- factor(updated_df$day_name,
                                       levels = c("Monday", "Tuesday",
                                                  "Wednesday", "Thursday",
                                                  "Friday", "Saturday",
                                                  "Sunday"))
-  #Bar plot
+  # Bar plot data
   ggplot(data = updated_df) +
     geom_col(mapping = aes(x = day_name, y = vaccinations, fill = day_name)) +
     scale_fill_manual(values = c("Monday" = "yellow",

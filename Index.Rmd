@@ -10,7 +10,6 @@ library(knitr)
 library(dplyr)
 library(ggplot2)
 library(lintr)
-knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Summary Information Script.R")
 source("Scripts/Aggregate Table Script.R")
 source("Scripts/Chart Script 1.R")
@@ -21,6 +20,7 @@ covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
 vaccinations_df <- read.csv("data/us_state_vaccinations.csv",
                             stringsAsFactors = FALSE)
 options(scipen=999) # for return integer as a whole
+options(knitr.duplicate.label = "allow")
 ```
 
 ## Introduction
@@ -42,7 +42,7 @@ We added this summarized table to show the top ten confirm cases in different co
 
 
 ## Chart Script 1
-```{r plot, echo =  FALSE}
+```{r bar_plot, echo =  FALSE}
 bar_graph_df(vaccinations_df)
 ```
 
@@ -50,15 +50,15 @@ For our first chart script we chose to do it about what day is most common to ge
 
 
 ##  Chart Script 2
-```{r plot, echo = FALSE}
-covid_deaths(covid_df)
+```{r scatter_plot, echo = FALSE}
+covid_case_to_death_ratio(covid_df)
 ```
 
 For our second chart script we wanted to use it to analyze the amount of covid cases and deaths around the world. With this ordinal data, we thought it would be best to represent it with a position visualization. We organized the plot to represent the amount of cases, and deaths in each continent. The plot addressed the question of "Which continent had the highest cases to deaths ratio?" And by looking at which continent had the steepest slope. Although Asia might be the continent with the most cases, we can see that South America had the greatest cases to deaths ratio.
 
 
 ##  Chart Script 3
-```{r pie plot, echo =  FALSE}
+```{r pie_plot, echo =  FALSE}
 pie_chart
 ```
 
