@@ -3,7 +3,6 @@ case_death_ratio_march <- function(df) {
   updated_df <- df %>%
     filter(continent != "") %>% 
     select(continent, new_cases, new_deaths, date) %>% 
-    filter(is.na(new_deaths) != TRUE & is.na(new_cases) != TRUE) %>% 
     filter(new_deaths >= 0 & new_cases >= 0) %>%
     filter(date >= as.POSIXct("2021-3-1") & date < as.POSIXct("2021-4-1")) %>% 
     group_by(continent, date) %>% 
