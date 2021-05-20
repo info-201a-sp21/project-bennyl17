@@ -52,10 +52,10 @@ For our first chart script we chose to do it about what day is most common to ge
 
 ##  Chart Script 2
 ```{r scatter_plot, echo = FALSE}
-covid_case_to_death_ratio(covid_df)
+case_death_ratio_march(covid_df)
 ```
 
-For our second chart script we wanted to use it to analyze the amount of covid cases and deaths around the world. With this ordinal data, we thought it would be best to represent it with a position visualization. We organized the plot to represent the amount of cases, and deaths in each continent. The plot addressed the question of "Which continent had the highest cases to deaths ratio?" And by looking at which continent had the steepest slope. Although Asia might be the continent with the most cases, we can see that South America had the greatest cases to deaths ratio.
+For our second chart script we wanted to use the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data set to analyze the Covid-19 cases/deaths ratio around the world by the each continents in March 2021. With this ordinal data, we thought it would be best to represent it with a position visualization with a trend line. We organized the plot to represent the ratio of cases/death in each continent. The plot addressed the question of "Which continent had the highest cases to deaths ratio during march 2021?" And by looking at which continent had the steepest slope. Although, North America and Africa started off the highest, South America cases to death ratio increases toward the end of march to become number one on the continents. 
 
 
 ##  Chart Script 3
