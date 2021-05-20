@@ -1,4 +1,3 @@
-
 pie_chart_df <- function(df) {
   #summarize dataframe / created new columns
   updated_df <- df %>%
