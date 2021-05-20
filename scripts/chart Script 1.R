@@ -5,8 +5,8 @@ bar_graph_df <- function(df) {
     # select(daily_vaccinations, day_name) %>%
     group_by(day_name) %>%
     summarise(vaccinations = sum(daily_vaccinations, na.rm = T))
-    
-  # Factor the date to make sure it is in the correct level. 
+
+  # Factor the date to make sure it is in the correct level.
   updated_df$day_name <- factor(updated_df$day_name,
                                       levels = c("Monday", "Tuesday",
                                                  "Wednesday", "Thursday",

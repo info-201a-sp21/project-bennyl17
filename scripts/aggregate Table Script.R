@@ -1,8 +1,8 @@
-# Create a aggregate table to summarize the top ten county of the most cases 
+# Create a aggregate table to summarize the top ten county of the most cases
 # within the state Washington.
 summary_df <- function(df) {
   df %>%
-    group_by(County) %>%
+    group_by(ï..County) %>%
     summarise(
       cases = sum(ConfirmedCases, na.rm = T),
       Age.0.19 = sum(Age.0.19, na.rm = T),

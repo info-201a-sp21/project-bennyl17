@@ -25,7 +25,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
 
 1. **What state has the most fully vaccinated people?**
    - _Description_: This question can be answered by sorting through and looking at the dataset to see which state has the most fully vaccinated amount of people.
-2. **Which continent had the highest cases, to deaths ratio?**
+2. **Which continent had the highest cases, to deaths ratio in March 2021?**
    - _Description_: This question can be answered by analyzing the 2 columns in the dataset, and then dividing confirmed cases by deaths to find the highest ratio.
 3. **When will the rate of covid 19 per population will equal to the rate of vaccination?**
    - _Description_: In cases where there are no columns for rates, we would mutate a column that will calculate rates of covid and compare it to the rate of vaccinations to get the exact date.
@@ -48,7 +48,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
    - _Number of rows_ : 87,093
    - _Number of columns_ : 59
    - _Questions_:
-     - Using this dataset we can use it to address the second question in the domain of interest: “Which continent had the highest cases, to deaths ratio?”
+     - Using this dataset we can use it to address the second question in the domain of interest: “Which continent had the highest cases, to deaths ratio in March 2021?”
      - Which month had the highest mortality rate?
      - What were the new cases to new deaths ratio?
      - Which country had the highest mortality to cases ratio?
