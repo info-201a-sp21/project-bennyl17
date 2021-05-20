@@ -26,11 +26,11 @@ options(knitr.duplicate.label = "allow")
 
 ## Introduction
 
-We chose to do our topic on covid just because of how much it has impacted our lives this past year. We wanted to research how severe this disease actually is, at many stages throughout this time. As well as the future of covid with people now getting vaccinated and how the vaccine will affect us. We acquired multiple data sets from deaths across the world, vaccinations in the US, and cases in Washington.
+We chose to do our topic on Covid just because of how much it has impacted our lives this past year. We wanted to research how severe this disease actually is, at many stages throughout this time. As well as the future of Covid with people now getting vaccinated and how the vaccine will affect us. We acquired multiple data sets from deaths across the world, vaccinations in the US, and cases in Washington.
 
 ## Summary Information Script
 
-For the summary information section, we decided to investigate toward the US population in particular. Therefore we use the data set from the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data source containing data about Covid-19. The first piece of information that we gain was that the total number of cases in the united states is currently `r summary_information(covid_df)$cases` cases. Where unfortunately `r summary_information(covid_df)$death` lives have passed away due to this pandemic. Even though not everyone was tested yet, so far they have done `r summary_information(covid_df)$test` tests. This resulted in a positive rate of covid from testing of `r summary_information(covid_df)$positive_rate` percents. Despite all the setback from this bad virus, the amount of people who got vaccination was `r summary_information(covid_df)$vaccination`. 
+For the summary information section, we decided to investigate toward the US population in particular. Therefore we use the data set from the [ourworldindata](https://ourworldindata.org/coronavirus-source-data) data source containing data about Covid-19. The first piece of information that we gain was that the total number of cases in the united states is currently `r summary_information(covid_df)$cases` cases. Where unfortunately `r summary_information(covid_df)$death` lives have passed away due to this pandemic. Even though not everyone was tested yet, so far they have done `r summary_information(covid_df)$test` tests. This resulted in a positive rate of covid from testing of `r summary_information(covid_df)$positive_rate` percents. Despite all the setback from this bad virus, the amount of people who got vaccination was `r summary_information(covid_df)$vaccination` people within the United States. 
 
 ## Aggregate Table Script
 ```{r echo = FALSE, message = FALSE}
@@ -47,7 +47,7 @@ We added this summarized table to show the top ten confirm cases in different co
 bar_graph_df(vaccinations_df)
 ```
 
-For our first chart script we chose to do it about what day is most common to get the vaccine. We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our data set and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
+For our first chart script we chose to do it about what day is most common to get the vaccine within the USA. We used the data set from this [website](https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations). We chose to do it in a bar chart because it was a good way of seeing which day triumphs another. We included this as a way for the audience to see which days are the busiest according to our data set and maybe they can avoid those days to reduce waiting times and potentially save them time. It seems that most days, there is about the same amount of people getting vaccinated each day of the week but Sunday seems to be slightly less than all the others.
 
 
 ##  Chart Script 2

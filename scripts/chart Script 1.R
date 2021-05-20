@@ -15,13 +15,13 @@ bar_graph_df <- function(df) {
   # Bar plot data
   ggplot(data = updated_df) +
     geom_col(mapping = aes(x = day_name, y = vaccinations, fill = day_name)) +
-    scale_fill_manual(values = c("Monday" = "yellow",
-                                 "Tuesday" = "orange",
-                                 "Wednesday" = "red",
-                                 "Thursday" = "blue",
-                                 "Friday" = "green",
-                                 "Saturday" = "white",
-                                 "Sunday" = "grey"),
+    scale_fill_manual(values = c("Monday" = "#FFFFB5",
+                                 "Tuesday" = "#FF9161",
+                                 "Wednesday" = "#FF6961",
+                                 "Thursday" = "#ABDEE6",
+                                 "Friday" = "#CCE2CB",
+                                 "Saturday" = "#8FCACA",
+                                 "Sunday" = "#FFB3BA"),
                       labels = c("Monday",
                                  "Tuesday",
                                  "Wednesday",
@@ -29,7 +29,7 @@ bar_graph_df <- function(df) {
                                  "Friday",
                                  "Saturday",
                                  "Sunday")) +
-    ggtitle("Vaccinations by Day of Week") +
+    ggtitle("Vaccinations by Day of Week in the USA") +
     theme(plot.title = element_text(hjust = 0.5)) +
     xlab("Day Name") +
     ylab("Occurences") +

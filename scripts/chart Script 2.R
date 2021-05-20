@@ -23,6 +23,6 @@ case_death_ratio_march <- function(df) {
     xlab("Day in March") +
     ylab("Percentage %") +
     ggtitle("Death/Cases Percentage in March 2021 by Continent") +
-    labs(fill = "Continents") +
+    labs(color = "Continents") +
     scale_x_continuous(name ="Day in March", breaks=seq(1,31,3))
 }
