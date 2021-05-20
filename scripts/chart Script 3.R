@@ -1,5 +1,6 @@
-# Need comments
+
 pie_chart_df <- function(df) {
+  #summarize dataframe / created new columns
   updated_df <- df %>%
     summarise(age0_19 = sum(df$Age.0.19, na.rm = T),
               age20_34 = sum(df$Age.20.34, na.rm = T),
@@ -11,7 +12,7 @@ pie_chart_df <- function(df) {
     arrange(desc(Age)) %>%
     mutate(prop = sum_of_cases / sum(sum_of_cases) * 100) %>%
     mutate(ypos = cumsum(prop) - 0.5 * prop)
-
+  #Create pie chart
   ggplot(data = updated_df, aes(x = factor(1), y = prop, fill = Age)) +
     geom_bar(stat = "identity", width = 1) +
     coord_polar("y", start = 180) +

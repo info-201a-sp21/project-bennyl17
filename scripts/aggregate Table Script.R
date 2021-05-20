@@ -2,7 +2,7 @@
 # within the state Washington.
 summary_df <- function(df) {
   df %>%
-    group_by(ï..County) %>%
+    group_by(County) %>%
     summarise(
       cases = sum(ConfirmedCases, na.rm = T),
       Age.0.19 = sum(Age.0.19, na.rm = T),
