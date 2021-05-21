@@ -1,3 +1,4 @@
+# Create a pie chart about different cases by age group within Washington
 pie_chart_df <- function(df) {
   #summarize dataframe / created new columns
   updated_df <- df %>%

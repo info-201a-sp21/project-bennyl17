@@ -1,4 +1,4 @@
-##In the united states
+## Creating summary information about Covid within the united states
 summary_information <- function(df) {
   result <- list()
 
