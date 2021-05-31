@@ -4,6 +4,9 @@ rm(list = ls())
 # Load all the necessary libraries
 library(shiny)
 library(dplyr)
+library(lintr)
+library(ggplot2)
+library(plotly)
 
 # Source the UI and Server files
 source("app_ui.R")
