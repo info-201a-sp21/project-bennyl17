@@ -10,7 +10,8 @@ interactive_page_one <- tabPanel(
 )
 
 interactive_page_two <- tabPanel(
-  "title"
+  "Covid Vaccines",
+  h1("Covid Vaccines")
 )
 
 interactive_page_three <- tabPanel(
