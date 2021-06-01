@@ -10,7 +10,7 @@ ui <- fluidPage(
   )
 )
 
-home_page <- tabPanel(
+introduction_page <- tabPanel(
   "Covid-19 Overview",
   h1("Introduction of Covid-19"),
   p("This is an introductory page into our shiny application...")
