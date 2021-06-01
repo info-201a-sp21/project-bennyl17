@@ -18,7 +18,7 @@ server <- function(input, output) {
   # Earth: I'm going to create a map
   output$world_map <- renderLeaflet({
     recent_covid_df <- covid_df %>%
-      filter(date == "2021-05-01") %>%
+      filter(date == "2021-05-01", continent != "") %>%
       select(location, total_cases, total_deaths, new_cases, new_deaths)
       
     world_covid_df <- map_df %>%
@@ -30,7 +30,7 @@ server <- function(input, output) {
              new_cases = new_cases/12000, 
              new_deaths = new_deaths/100)
     
-    leaflet(data = world_covid_df, 
+    map <- leaflet(data = world_covid_df, 
             options = leafletOptions(worldCopyJump = T)) %>%
       addProviderTiles("Stamen.TonerLite") %>%
       addCircleMarkers(
@@ -43,10 +43,23 @@ server <- function(input, output) {
         popup = ~paste("<b>Location:</b>", location, "<br/>",
                        "<b>People:</b>", world_covid_df[[input$data_types]])
       )
+    
+    return(map)
   })
   
   output$world_table <- renderTable({
+    table <- covid_df %>%
+      filter(date == "2021-05-01", continent != "") %>%
+      select("location", input$data_types)
+
     
+    table <- table[order(table[tolower(input$data_types)],
+                         decreasing = TRUE), ]
+    
+    table <- head(table, 5)
+    
+    return(table)
+      
   })
   
 }
