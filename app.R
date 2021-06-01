@@ -1,4 +1,4 @@
-# Remove global elements for easier debugging. 
+# Remove global elements for easier debugging.
 rm(list = ls())
 
 # Load all the necessary libraries
