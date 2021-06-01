@@ -7,6 +7,8 @@ library(dplyr)
 library(lintr)
 library(ggplot2)
 library(plotly)
+library(leaflet)
+library(tidyr)
 
 # Source the UI and Server files
 source("app_ui.R")
