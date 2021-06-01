@@ -9,7 +9,7 @@ server <- function(input, output) {
   covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
   vaccinations_df <- read.csv("data/us_state_vaccinations.csv",
                               stringsAsFactors = FALSE)
-  map_df <- read.csv("data/world_data_leaflet", stringsAsFactors = F)
+  map_df <- read.csv("data/world_data_leaflet.csv", stringsAsFactors = F)
   
   # Some data wrangling so that map_df is easier to use
   map_df <- map_df %>%
@@ -30,7 +30,8 @@ server <- function(input, output) {
              new_cases = new_cases/12000, 
              new_deaths = new_deaths/100)
     
-    leaflet(data = world_covid_df) %>%
+    leaflet(data = world_covid_df, 
+            options = leafletOptions(worldCopyJump = T)) %>%
       addProviderTiles("Stamen.TonerLite") %>%
       addCircleMarkers(
         lat = ~latitude,
@@ -38,7 +39,9 @@ server <- function(input, output) {
         color = "Red",
         fillOpacity = .7,
         radius = world_covid_df[[input$data_types]],
-        stroke = FALSE
+        stroke = FALSE,
+        popup = ~paste("<b>Location:</b>", location, "<br/>",
+                       "<b>People:</b>", world_covid_df[[input$data_types]])
       )
   })
   

@@ -6,11 +6,12 @@ introduction_page <- tabPanel(
 
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
-  h1(""),
+  h1("Covid-19 Maps"),
+  h3("The world map of covid-19"),
   sidebarPanel(
     selectInput(
       inputId = "data_types",
-      label = "types",
+      label = h5("Types of Informations"),
       choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
     )
   ),
