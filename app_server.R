@@ -1,5 +1,3 @@
-
-
 # Start of shiny server function
 server <- function(input, output) {
   
@@ -60,6 +58,44 @@ server <- function(input, output) {
     
     return(table)
       
+  })
+  
+  output$bar <- renderPlot({
+    
+    updated_df <- vaccinations_df %>%
+      mutate(day_name = weekdays(as.Date(date))) %>%
+      filter(date >= as.POSIXct("2021-05-01") & date < as.POSIXct("2021-05-08")) %>%
+      select(location, day_name, total_vaccinations) %>%
+      filter(location == input$state)
+    
+    
+    updated_df$day_name <- factor(updated_df$day_name,
+                                  levels = c("Monday", "Tuesday",
+                                             "Wednesday", "Thursday",
+                                             "Friday", "Saturday",
+                                             "Sunday"))
+    
+    ggplot(data = updated_df) +
+      geom_col(mapping = aes(x = day_name, y = total_vaccinations, fill = day_name)) +
+      scale_fill_manual(values = c("Monday" = "#FFFFB5",
+                                   "Tuesday" = "#FF9161",
+                                   "Wednesday" = "#FF6961",
+                                   "Thursday" = "#ABDEE6",
+                                   "Friday" = "#CCE2CB",
+                                   "Saturday" = "#8FCACA",
+                                   "Sunday" = "#FFB3BA"),
+                        labels = c("Monday",
+                                   "Tuesday",
+                                   "Wednesday",
+                                   "Thursday",
+                                   "Friday",
+                                   "Saturday",
+                                   "Sunday")) +
+      ggtitle("Vaccinations by Day of Week in the USA") +
+      theme(plot.title = element_text(hjust = 0.5)) +
+      xlab("Day Name") +
+      ylab("Occurences") +
+      labs(fill = "Occurences")
   })
   
 }

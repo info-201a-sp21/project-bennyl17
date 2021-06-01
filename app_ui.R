@@ -1,3 +1,7 @@
+# Definitely needs to fix this
+vaccinations_df <- read.csv("data/us_state_vaccinations.csv",
+                            stringsAsFactors = FALSE)
+
 introduction_page <- tabPanel(
   "Covid-19 Overview",
   h1("Introduction of Covid-19"),
@@ -23,7 +27,15 @@ interactive_page_one <- tabPanel(
 
 interactive_page_two <- tabPanel(
   "Covid Vaccines",
-  h1("Covid Vaccines")
+  h1("Covid Vaccines"),
+  sidebarPanel(
+    radioButtons(inputId = "state", 
+                 label = "Choices",
+                 choices = unique(vaccinations_df$location)) # Need to fix this
+  ),
+  mainPanel(
+    plotOutput("bar")
+  )
 )
 
 interactive_page_three <- tabPanel(
