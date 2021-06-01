@@ -1,4 +1,4 @@
-ui <- fluidpage(
+ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
     "Covid Project",
