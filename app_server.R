@@ -5,7 +5,7 @@
 server <- function(input, output) {
   
   # Earth: I'm going to create a map
-  output$map <- renderPlotly({ 
+  output$map <- renderLeaflet({ 
   })
   
 }
