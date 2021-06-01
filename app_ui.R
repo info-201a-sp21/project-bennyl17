@@ -16,7 +16,8 @@ interactive_page_one <- tabPanel(
     )
   ),
   mainPanel(
-    leafletOutput("world_map")
+    leafletOutput("world_map"),
+    tableOutput("world_table")
   )
 )
 

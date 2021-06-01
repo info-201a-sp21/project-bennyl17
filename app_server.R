@@ -45,4 +45,8 @@ server <- function(input, output) {
       )
   })
   
+  output$world_table <- renderTable({
+    
+  })
+  
 }
