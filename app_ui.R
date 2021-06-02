@@ -23,11 +23,21 @@ interactive_page_two <- tabPanel(
   "Covid Vaccines",
   h1("Covid Vaccines")
 )
-
+############################################################
+continents <- unique(updated_df$continent)
 interactive_page_three <- tabPanel(
-  "title"
+  "Percentage of Deaths in March 2021",
+  checkboxGroupInput(
+    inputId = "checkbox",
+    label = h3("Select Continent"),
+    choices = continents
+  ),
+  submitButton("Apply Continent(s)", icon("globe-americas")),
+  plotOutput(
+    outputId = "covidratio"
+  )
 )
-
+############################################################
 summary_page <- tabPanel(
   "title"
 )
