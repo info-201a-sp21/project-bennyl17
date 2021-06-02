@@ -6,23 +6,40 @@ introduction_page <- tabPanel(
 
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
-  h1("Covid Map of the world"),
+  h1("Different Maps about covid-19"),
+  p("For the map interactive page, all three datasets within the repository in 
+    order for us to generate 3 different maps. This page will contain only 
+    maps where all of them will be interactive showing different types of map.
+    The first map will be about the world. We will be able to gain data from
+    hovering over the markers. While the second map will concern vaccinations
+    within the United states. Thirdly the last map will be focused within Seattle
+    and its county."),
+  h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
         inputId = "data_types",
         label = "types",
         choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
-      )
+      ),
+      h4("Top 5 of different statistics"),
+      tableOutput("world_table")
     ),
     mainPanel(
-      leafletOutput("world_map"),
-      tableOutput("world_table")
+      leafletOutput("world_map")
     )
   ),
-  h3("Vacination of Covid map of the united state"),
-  plotlyOutput("US_map")
-  
+  h2("Vacination of Covid map of the united state"),
+  sidebarLayout(position = "right",
+    sidebarPanel(
+      h4("Top 5 vaccinations states"),
+      tableOutput("vaccination_table")
+    ),
+    mainPanel(
+      plotlyOutput("US_map")
+    )
+  ),
+  plotlyOutput("washington_map")
 )
 
 interactive_page_two <- tabPanel(

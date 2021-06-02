@@ -13,21 +13,25 @@ server <- function(input, output) {
   map_df <- map_df %>%
     select(-X)
   
-  # int map 1
+  # Interactive map for the world for page one
   output$world_map <- renderLeaflet({
+    # Data wrangling for our covid data frame in order to return the correct
+    # values.
     recent_covid_df <- covid_df %>%
       filter(date == "2021-05-01", continent != "") %>%
       select(location, total_cases, total_deaths, new_cases, new_deaths)
-      
+    
+    # Left join the world data so that it is able to be plot on leaflet
     world_covid_df <- map_df %>%
       rename(location = country) %>%
       left_join(recent_covid_df, by = "location") %>%
       drop_na() %>%
-      mutate(total_cases = total_cases/1000000,
-             total_deaths = total_deaths/30000, 
-             new_cases = new_cases/12000, 
-             new_deaths = new_deaths/100)
+      mutate(total_cases_r = total_cases/1000000,
+             total_deaths_r = total_deaths/30000, 
+             new_cases_r = new_cases/12000, 
+             new_deaths_r = new_deaths/100)
     
+    # Map of the world
     map <- leaflet(data = world_covid_df, 
             options = leafletOptions(worldCopyJump = T)) %>%
       addProviderTiles("Stamen.TonerLite") %>%
@@ -36,7 +40,7 @@ server <- function(input, output) {
         lng = ~longitude,
         color = "Red",
         fillOpacity = .7,
-        radius = world_covid_df[[input$data_types]],
+        radius = world_covid_df[[paste0(input$data_types, "_r")]],
         stroke = FALSE,
         popup = ~paste("<b>Location:</b>", location, "<br/>",
                        "<b>People:</b>", world_covid_df[[input$data_types]])
@@ -45,18 +49,22 @@ server <- function(input, output) {
     return(map)
   })
   
+  # map of the USA about the vaccinations
   output$US_map <- renderPlotly({
-    vacination_certain <- vaccinations_df %>%
+    # Data wrangling process in order for us to return the correct values
+    vaccination_certain <- vaccinations_df %>%
       filter(date == as.POSIXct("2021-05-08")) %>%
       mutate(location = tolower(location))
     
+    # Left join the state shape to the vaccination
     state_shape <- map_data("state") %>%
       rename(location = region) %>%
-      left_join(vacination_certain, by = "location")
+      left_join(vaccination_certain, by = "location")
     
+    # Plot using ggplot then will add plotly to turn it into interactive
     vaccination_map <- ggplot(data = state_shape) +
       geom_polygon(
-        mapping = aes(x = long, y = lat, group = group,
+        mapping = aes(x = long, y = lat, group = location,
                       fill = total_vaccinations),
         color = "Black",
         size = .1,
@@ -67,11 +75,39 @@ server <- function(input, output) {
       scale_fill_continuous(low = "White", high = "Red") +
       blank_theme
     
+    # Add ggplotly to it
     vaccination_plotly <- ggplotly(vaccination_map)
-    
     return(vaccination_plotly)
   })
   
+  output$washington_map <- renderPlotly({
+    county_df <- WA_df %>%
+      filter(WeekStartDate == as.POSIXct("29/11/2020")) %>%
+      select(County, TotalCases)
+    
+    county_map <- map_data("county") %>%
+      filter(region == "washington") %>%
+      rename(County = subregion) %>%
+      left_join(county_df, by = "County")
+    
+    county_plot <- ggplot(data = county_map) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = County,
+                      fill =  TotalCases),
+        color = "Black",
+        size = .1,
+        alpha = 0.8,
+      ) +
+      labs(title = paste0("Map of Washington state covid cases")) +
+      coord_map() +
+      scale_fill_continuous(low = "White", high = "Red") +
+      blank_theme
+    
+    map <- ggplotly(county_plot)
+    return(map)
+  })
+  
+  # output the table concerning about the world map
   output$world_table <- renderTable({
     table <- covid_df %>%
       filter(date == "2021-05-01", continent != "") %>%
@@ -81,6 +117,18 @@ server <- function(input, output) {
     table <- head(table, 5)
     return(table)
   })
+  
+  # Out the table concerning about the vaccination map
+  output$vaccination_table <- renderTable({
+    table <- vaccinations_df %>%
+      filter(date == as.POSIXct("2021-05-08")) %>%
+      select(location, total_vaccinations) %>%
+      top_n(n = 5, wt = total_vaccinations) %>%
+      arrange(desc(total_vaccinations))
+
+    return(table)
+  })
+  
   
   # For rendering bar plot on the second interactive page
   output$bar <- renderPlot({
