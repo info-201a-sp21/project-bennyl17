@@ -98,7 +98,7 @@ server <- function(input, output) {
       labs(fill = "Occurences")
   })
 
-  
+
   output$covidratio <- renderPlot({
     updated_df <- covid_df %>%
       filter(continent != "") %>%
@@ -128,8 +128,9 @@ server <- function(input, output) {
       scale_x_continuous(name = "Day in March", breaks = seq(1, 31, 3))
       return(plot)
   })
+
   #int map 2
-  output$bar <- renderPlot({
+  output$bar_test <- renderPlot({
     
     updated_df <- data %>%
       mutate(day_name = weekdays(as.Date(date))) %>%
