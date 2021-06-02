@@ -97,6 +97,10 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
+<<<<<<< HEAD
+=======
+
+>>>>>>> b007573823fee460d9d083504494dad43c49c0ee
   
   output$covidratio <- renderPlot({
     updated_df <- covid_df %>%
@@ -127,6 +131,30 @@ server <- function(input, output) {
       scale_x_continuous(name = "Day in March", breaks = seq(1, 31, 3))
       return(plot)
   })
+<<<<<<< HEAD
+=======
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+>>>>>>> b007573823fee460d9d083504494dad43c49c0ee
 
   #int map 2
   output$bar <- renderPlot({
