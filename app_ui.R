@@ -7,17 +7,15 @@ introduction_page <- tabPanel(
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
   h1("Different Maps about covid-19"),
-  p("For the map interactive page, all three datasets within the repository in 
-    order for us to generate 3 different maps. This page will contain only 
-    maps where all of them will be interactive showing different types of map.
-    The first map will be about the world. We will be able to gain data from
-    hovering over the markers. While the second map will concern vaccinations
-    within the United states. Thirdly the last map will be focused within Seattle
-    and its county."),
+  p("For the map interactive page, we used the covid 19 data of the world and 
+    the data about washington to generate two different maps on this page. This 
+    page will contain only maps where all of them will be interactive showing 
+    different types of map. The first map will be about the world. We will be 
+    able to gain data from hovering over the markers. While the second 
+    map will be focused within the Washington State and its county."),
   p("Question Number one: Which country in the world contained the most cases
     of Covid-19"),
-  p("Question number two: Does the east or the west coast contain more
-    Vaccinations"),
+  p("Question number two: Which contry contains the most new cases of Covid"),
   p("Question number three: Which county have the most cases of covid-19 in
     the state of Washington"),
   h2("Covid map of the world"),
@@ -28,7 +26,7 @@ interactive_page_one <- tabPanel(
         label = "types",
         choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
       ),
-      h4("Top 5 of different statistics"),
+      h4(paste0("Top 5 countries of different statistics")),
       tableOutput("world_table")
     ),
     mainPanel(
