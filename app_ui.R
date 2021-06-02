@@ -127,7 +127,15 @@ summary_page <- tabPanel(
     state with the most total vaccinations but it also wasnt a top 10 state with
     the most cases per 100,000. We can also see that none of the top 5 states
     with vaccinations matched up with the top 10 states with most cases."),
-  h2("Takeaway #3")
+  h2("Takeaway #3"),
+  p("A final major takeaway comes from the Covid death percentages plots. As we
+    can see, Africa has the highest death toll per cases out of all the
+    continents. Although other continents, such as North America, may be
+    yielding a higher number of deaths, their percentage is still lower. With
+    this, what we can takeaway is that there are many factors such as
+    accessibility to vaccines, that may affect the percentage of deaths. Not
+    solely just the number of cases.
+    ")
 )
 
 ui <- fluidPage(
