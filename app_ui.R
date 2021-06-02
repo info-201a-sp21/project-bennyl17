@@ -34,6 +34,20 @@ interactive_page_two <- tabPanel(
   )
 )
 ############################################################
+covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
+updated_df <- covid_df %>%
+  filter(continent != "") %>%
+  select(continent, new_cases, new_deaths, date) %>%
+  filter(new_deaths >= 0 & new_cases >= 0) %>%
+  filter(date >= as.POSIXct("2021-3-1") &
+           date < as.POSIXct("2021-4-1")) %>%
+  group_by(continent, date) %>%
+  summarise(new_cases = sum(new_cases, na.rm = T),
+            new_deaths = sum(new_deaths, na.rm = T),
+            percentage = round(new_deaths / new_cases * 100, 1),
+            .groups = "drop") %>%
+  mutate(day = as.numeric(format(as.Date(date), "%d")))
+
 continents <- unique(updated_df$continent)
 interactive_page_three <- tabPanel(
   "Percentage of Deaths in March 2021",
