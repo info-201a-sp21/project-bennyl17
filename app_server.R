@@ -97,7 +97,7 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
-<<<<<<< HEAD
+
   
   output$covidratio <- renderPlot({
     updated_df <- covid_df %>%
@@ -149,7 +149,7 @@ server <- function(input, output) {
   
   
   
-=======
+
   #int map 2
   output$bar <- renderPlot({
     
@@ -188,6 +188,6 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
->>>>>>> 5196fdf1e253c847977624cf482ffcd7022d3210
+
 }
 
