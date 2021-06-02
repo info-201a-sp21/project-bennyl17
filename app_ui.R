@@ -35,18 +35,8 @@ interactive_page_one <- tabPanel(
       leafletOutput("world_map")
     )
   ),
-  h2("Vacination of Covid map of the United States"),
-  sidebarLayout(position = "right",
-    sidebarPanel(
-      h4("Top 5 vaccinations states"),
-      tableOutput("vaccination_table")
-    ),
-    mainPanel(
-      plotlyOutput("US_map")
-    )
-  ),
   h2("Covid map of Cases in Washington"),
-  sidebarLayout(
+  sidebarLayout(position = "right",
     sidebarPanel(
       h4("Top 5 county of Covid cases"),
       tableOutput("washington_table")
@@ -70,7 +60,17 @@ interactive_page_two <- tabPanel(
   ),
   mainPanel(
     plotOutput("bar")
-  )
+  ),
+  h2("Vacination of Covid map of the United States"),
+  sidebarLayout(position = "right",
+                sidebarPanel(
+                  h4("Top 5 vaccinations states"),
+                  tableOutput("vaccination_table")
+                ),
+                mainPanel(
+                  plotlyOutput("US_map")
+                )
+  ),
 )
 
 
@@ -85,8 +85,6 @@ interactive_page_three <- tabPanel(
       selected = c("Africa",  "Asia", "Europe", "North America", 
                    "Oceania", "South America")
     )
-    #,submitButton("Apply Continent(s)", icon("globe-americas"))
-    # I have problems with this particular button
   ),
   mainPanel(
     plotOutput("covidratio")
