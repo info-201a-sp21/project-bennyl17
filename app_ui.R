@@ -21,7 +21,18 @@ interactive_page_one <- tabPanel(
 
 interactive_page_two <- tabPanel(
   "Covid Vaccines",
-  h1("Covid Vaccines")
+  h1("Covid Vaccines"),
+  sidebarPanel(
+    radioButtons(inputId = "state", 
+                 label = "States",
+                 choices = c("North Dakota", "Rhode Island", 
+                             "South Dakota", "Utah", "Tennessee",
+                             "Arizona", "Iowa", "Nebraska", "Wisconsin",
+                             "Oklahoma"))
+  ),
+  mainPanel(
+    plotOutput("bar")
+  )
 )
 
 interactive_page_three <- tabPanel(
