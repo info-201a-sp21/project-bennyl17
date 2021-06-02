@@ -14,6 +14,12 @@ interactive_page_one <- tabPanel(
     hovering over the markers. While the second map will concern vaccinations
     within the United states. Thirdly the last map will be focused within Seattle
     and its county."),
+  p("Question Number one: Which country in the world contained the most cases
+    of Covid-19"),
+  p("Question number two: Does the east or the west coast contain more
+    Vaccinations"),
+  p("Question number three: Which county have the most cases of covid-19 in
+    the state of Washington"),
   h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(

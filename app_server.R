@@ -213,6 +213,7 @@ server <- function(input, output) {
       return(plot)
   })
   
+  # To create a better looking maps
   blank_theme <- theme_bw() +
     theme(
       axis.line = element_blank(),        # remove axis lines
