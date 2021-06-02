@@ -100,8 +100,6 @@ server <- function(input, output) {
       labs(fill = "Occurences")
   })
 
-
-  
   output$covidratio <- renderPlot({
     
     #Make sure that covid_df is suitable for the graph
@@ -132,7 +130,7 @@ server <- function(input, output) {
       scale_x_continuous(name = "Day in March", breaks = seq(1, 31, 3))
       return(plot)
   })
-  
+
   #int map 2
   output$bar_two <- renderPlot({
     
