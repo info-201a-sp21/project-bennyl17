@@ -48,6 +48,18 @@ interactive_page_one <- tabPanel(
 interactive_page_two <- tabPanel(
   "Covid Vaccines",
   h1("Covid Vaccines"),
+  p("For this interactive barplot, we wanted to show how the vaccine has 
+    positively affected these ten states. We chose to talk about these ten 
+    states because they were the states with the most cases per 100,000 people.
+    Specifically we toned down onto how many people get vaccinations each day of
+    the week. With this, we were able to answer the following questions:
+    "),
+  p("With the states most affected by covid, how has the exposure of the vaccine
+    been to civilians?"),
+  p("Among these most affected states, which day of the week was most common for 
+    people to get vaccinated?"),
+  p("Which state had the highest number of vaccination cases and where do they
+    rank among the top ten worst states based on covid cases?"),
   sidebarPanel(
     radioButtons(inputId = "state", 
                  label = "States",
