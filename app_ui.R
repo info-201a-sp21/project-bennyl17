@@ -1,7 +1,15 @@
 introduction_page <- tabPanel(
   "Covid-19 Overview",
-  h1("Introduction of Covid-19"),
-  p("This is an introductory page into our shiny application..."),
+  h1("Introduction to our Covid-19 project"),
+  p("For our groups project, we decided to look into how much covid hasa really
+    affected the world as a whole. Throughout the project, we look into not only
+    the worlds numbers, but also look in more specific areas such as the US and 
+    also Washington. Some of the main things that we were trying to answer were
+    how has covid affected the world throughout this year with the pandemic. 
+    Another thing that we thought was important to look into was the future of 
+    this disease and how vaccinations will come into play and we answer a few 
+    questions related to that about the spread of people getting the 
+    vaccination. Will that cause cases to go up? down?"),
   img(src = "virus-picture.jpeg", width = 600, height = 300)
 )
 
@@ -89,6 +97,7 @@ interactive_page_two <- tabPanel(
 
 interactive_page_three <- tabPanel(
   "Percentage of Deaths in March 2021",
+  h1("Death Charts"),
   sidebarPanel(
     checkboxGroupInput(
       inputId = "checkbox",
@@ -108,7 +117,17 @@ interactive_page_three <- tabPanel(
 )
 
 summary_page <- tabPanel(
-  "Summary Takeaway"
+  "Summary Takeaway",
+  h2("Takeaway #1"),
+  p(),
+  h2("Takeaway #2"),
+  p("We can see based on the vaccinations map and barplot that the states with
+    the most cases per 100,000 people and the states with the most total 
+    vaccinated people did not match up. As the map shows, California is the 
+    state with the most total vaccinations but it also wasnt a top 10 state with
+    the most cases per 100,000. We can also see that none of the top 5 states
+    with vaccinations matched up with the top 10 states with most cases."),
+  h2("Takeaway #3")
 )
 
 ui <- fluidPage(
