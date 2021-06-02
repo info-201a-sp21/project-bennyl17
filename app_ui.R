@@ -15,7 +15,8 @@ interactive_page_one <- tabPanel(
     )
   ),
   mainPanel(
-    leafletOutput("world_map")
+    leafletOutput("world_map"),
+    tableOutput("world_table")
   )
 )
 
@@ -34,35 +35,26 @@ interactive_page_two <- tabPanel(
     plotOutput("bar")
   )
 )
-############################################################
-covid_df <- read.csv("data/owid-covid-data.csv", stringsAsFactors = FALSE)
-updated_df <- covid_df %>%
-  filter(continent != "") %>%
-  select(continent, new_cases, new_deaths, date) %>%
-  filter(new_deaths >= 0 & new_cases >= 0) %>%
-  filter(date >= as.POSIXct("2021-3-1") &
-           date < as.POSIXct("2021-4-1")) %>%
-  group_by(continent, date) %>%
-  summarise(new_cases = sum(new_cases, na.rm = T),
-            new_deaths = sum(new_deaths, na.rm = T),
-            percentage = round(new_deaths / new_cases * 100, 1),
-            .groups = "drop") %>%
-  mutate(day = as.numeric(format(as.Date(date), "%d")))
 
-continents <- unique(updated_df$continent)
+
 interactive_page_three <- tabPanel(
   "Percentage of Deaths in March 2021",
-  checkboxGroupInput(
-    inputId = "checkbox",
-    label = h3("Select Continent"),
-    choices = continents
+  sidebarPanel(
+    checkboxGroupInput(
+      inputId = "checkbox",
+      label = h3("Select Continent"),
+      choices = c("Africa",  "Asia", "Europe", "North America", 
+                  "Oceania", "South America"),
+      selected = c("Africa",  "Asia", "Europe", "North America", 
+                   "Oceania", "South America")
+    )
+    #,submitButton("Apply Continent(s)", icon("globe-americas"))
   ),
-  submitButton("Apply Continent(s)", icon("globe-americas")),
-  plotOutput(
-    outputId = "covidratio"
+  mainPanel(
+    plotOutput("covidratio")
   )
 )
-############################################################
+
 summary_page <- tabPanel(
   "Summary Takeaway"
 )

@@ -61,14 +61,15 @@ server <- function(input, output) {
   })
   
   output$bar <- renderPlot({
-    
+    # For updating the data frame in order for it work
     updated_df <- vaccinations_df %>%
       mutate(day_name = weekdays(as.Date(date))) %>%
-      filter(date >= as.POSIXct("2021-05-01") & date < as.POSIXct("2021-05-08")) %>%
+      filter(date >= as.POSIXct("2021-05-01") & 
+               date < as.POSIXct("2021-05-08")) %>%
       select(location, day_name, total_vaccinations) %>%
       filter(location == input$state)
     
-    
+    # For adding levels of factors
     updated_df$day_name <- factor(updated_df$day_name,
                                   levels = c("Monday", "Tuesday",
                                              "Wednesday", "Thursday",
@@ -76,7 +77,8 @@ server <- function(input, output) {
                                              "Sunday"))
     
     ggplot(data = updated_df) +
-      geom_col(mapping = aes(x = day_name, y = total_vaccinations, fill = day_name)) +
+      geom_col(mapping = aes(x = day_name, y = total_vaccinations, 
+                             fill = day_name)) +
       scale_fill_manual(values = c("Monday" = "#FFFFB5",
                                    "Tuesday" = "#FF9161",
                                    "Wednesday" = "#FF6961",
@@ -98,23 +100,26 @@ server <- function(input, output) {
       labs(fill = "Occurences")
   })
 
+
+  
   output$covidratio <- renderPlot({
-    updated_df <- covid_df %>%
-      filter(continent != "") %>%
+    
+    #Make sure that covid_df is suitable for the graph
+    updated_covid_df <- covid_df %>%
+      filter(continent %in% input$checkbox) %>%
       select(continent, new_cases, new_deaths, date) %>%
       filter(new_deaths >= 0 & new_cases >= 0) %>%
       filter(date >= as.POSIXct("2021-3-1") &
-             date < as.POSIXct("2021-4-1")) %>%
+               date < as.POSIXct("2021-4-1")) %>%
       group_by(continent, date) %>%
       summarise(new_cases = sum(new_cases, na.rm = T),
                 new_deaths = sum(new_deaths, na.rm = T),
                 percentage = round(new_deaths / new_cases * 100, 1),
                 .groups = "drop") %>%
       mutate(day = as.numeric(format(as.Date(date), "%d")))
-      
     
     # Plot the graph with trend lines
-    plot <- ggplot(data = updated_df) +
+    plot <- ggplot(data = updated_covid_df) +
       geom_point(mapping = aes(x = day, y = percentage, color = continent)) +
       geom_smooth(mapping = aes(x = day, y = percentage, color = continent),
                   method = "lm",
@@ -129,7 +134,7 @@ server <- function(input, output) {
   })
   
   #int map 2
-  output$bar_test <- renderPlot({
+  output$bar_two <- renderPlot({
     
     updated_df <- data %>%
       mutate(day_name = weekdays(as.Date(date))) %>%
@@ -166,6 +171,6 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
-
+  
 }
 
