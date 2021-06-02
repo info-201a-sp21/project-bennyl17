@@ -6,22 +6,32 @@ introduction_page <- tabPanel(
 
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
-  h1(""),
+  h1("Covid-19 Maps"),
+  h3("The world map of covid-19"),
   sidebarPanel(
     selectInput(
       inputId = "data_types",
-      label = "types",
+      label = h5("Types of Informations"),
       choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
     )
   ),
   mainPanel(
-    leafletOutput("world_map")
+    leafletOutput("world_map"),
+    tableOutput("world_table")
   )
 )
 
 interactive_page_two <- tabPanel(
   "Covid Vaccines",
-  h1("Covid Vaccines")
+  h1("Covid Vaccines"),
+  sidebarPanel(
+    radioButtons(inputId = "state", 
+                 label = "Choices",
+                 choices = c("California", "Washington", "Florida")) # Need to fix this
+  ),
+  mainPanel(
+    plotOutput("bar")
+  )
 )
 ############################################################
 continents <- unique(updated_df$continent)
