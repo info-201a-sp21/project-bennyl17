@@ -13,7 +13,7 @@ server <- function(input, output) {
   map_df <- map_df %>%
     select(-X)
   
-  # Earth: I'm going to create a map
+  # int map 1
   output$world_map <- renderLeaflet({
     recent_covid_df <- covid_df %>%
       filter(date == "2021-05-01", continent != "") %>%
@@ -97,6 +97,7 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
+<<<<<<< HEAD
   
   output$covidratio <- renderPlot({
     updated_df <- covid_df %>%
@@ -148,4 +149,45 @@ server <- function(input, output) {
   
   
   
+=======
+  #int map 2
+  output$bar <- renderPlot({
+    
+    updated_df <- data %>%
+      mutate(day_name = weekdays(as.Date(date))) %>%
+      filter(date >= as.POSIXct("2021-05-01") & date < as.POSIXct("2021-05-08")) %>%
+      select(location, day_name, total_vaccinations) %>%
+      filter(location == input$state)
+    
+    
+    updated_df$day_name <- factor(updated_df$day_name,
+                                  levels = c("Monday", "Tuesday",
+                                             "Wednesday", "Thursday",
+                                             "Friday", "Saturday",
+                                             "Sunday"))
+    
+    ggplot(data = updated_df) +
+      geom_col(mapping = aes(x = day_name, y = total_vaccinations, fill = day_name)) +
+      scale_fill_manual(values = c("Monday" = "#FFFFB5",
+                                   "Tuesday" = "#FF9161",
+                                   "Wednesday" = "#FF6961",
+                                   "Thursday" = "#ABDEE6",
+                                   "Friday" = "#CCE2CB",
+                                   "Saturday" = "#8FCACA",
+                                   "Sunday" = "#FFB3BA"),
+                        labels = c("Monday",
+                                   "Tuesday",
+                                   "Wednesday",
+                                   "Thursday",
+                                   "Friday",
+                                   "Saturday",
+                                   "Sunday")) +
+      ggtitle("Vaccinations by Day of Week by Top Covid States") +
+      theme(plot.title = element_text(hjust = 0.5)) +
+      xlab("Day Name") +
+      ylab("Occurences") +
+      labs(fill = "Occurences")
+  })
+>>>>>>> 5196fdf1e253c847977624cf482ffcd7022d3210
 }
+

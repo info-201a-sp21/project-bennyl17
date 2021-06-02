@@ -6,18 +6,16 @@ introduction_page <- tabPanel(
 
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
-  h1("Covid-19 Maps"),
-  h3("The world map of covid-19"),
+  h1(""),
   sidebarPanel(
     selectInput(
       inputId = "data_types",
-      label = h5("Types of Informations"),
+      label = "types",
       choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
     )
   ),
   mainPanel(
-    leafletOutput("world_map"),
-    tableOutput("world_table")
+    leafletOutput("world_map")
   )
 )
 
@@ -26,8 +24,11 @@ interactive_page_two <- tabPanel(
   h1("Covid Vaccines"),
   sidebarPanel(
     radioButtons(inputId = "state", 
-                 label = "Choices",
-                 choices = c("California", "Washington", "Florida")) # Need to fix this
+                 label = "States",
+                 choices = c("North Dakota", "Rhode Island", 
+                             "South Dakota", "Utah", "Tennessee",
+                             "Arizona", "Iowa", "Nebraska", "Wisconsin",
+                             "Oklahoma"))
   ),
   mainPanel(
     plotOutput("bar")
