@@ -80,9 +80,9 @@ server <- function(input, output) {
                          decreasing = TRUE), ]
     table <- head(table, 5)
     return(table)
-      
   })
   
+  # For rendering bar plot on the second interactive page
   output$bar <- renderPlot({
     # For updating the data frame in order for it work
     updated_df <- vaccinations_df %>%
@@ -123,8 +123,8 @@ server <- function(input, output) {
       labs(fill = "Occurences")
   })
 
+  # For rendering interactive page of page 3
   output$covidratio <- renderPlot({
-    
     #Make sure that covid_df is suitable for the graph
     updated_covid_df <- covid_df %>%
       filter(continent %in% input$checkbox) %>%
@@ -152,45 +152,6 @@ server <- function(input, output) {
       labs(color = "Continents") +
       scale_x_continuous(name = "Day in March", breaks = seq(1, 31, 3))
       return(plot)
-  })
-
-  #int map 2
-  output$bar_two <- renderPlot({
-    
-    updated_df <- data %>%
-      mutate(day_name = weekdays(as.Date(date))) %>%
-      filter(date >= as.POSIXct("2021-05-01") & date < as.POSIXct("2021-05-08")) %>%
-      select(location, day_name, total_vaccinations) %>%
-      filter(location == input$state)
-    
-    
-    updated_df$day_name <- factor(updated_df$day_name,
-                                  levels = c("Monday", "Tuesday",
-                                             "Wednesday", "Thursday",
-                                             "Friday", "Saturday",
-                                             "Sunday"))
-    
-    ggplot(data = updated_df) +
-      geom_col(mapping = aes(x = day_name, y = total_vaccinations, fill = day_name)) +
-      scale_fill_manual(values = c("Monday" = "#FFFFB5",
-                                   "Tuesday" = "#FF9161",
-                                   "Wednesday" = "#FF6961",
-                                   "Thursday" = "#ABDEE6",
-                                   "Friday" = "#CCE2CB",
-                                   "Saturday" = "#8FCACA",
-                                   "Sunday" = "#FFB3BA"),
-                        labels = c("Monday",
-                                   "Tuesday",
-                                   "Wednesday",
-                                   "Thursday",
-                                   "Friday",
-                                   "Saturday",
-                                   "Sunday")) +
-      ggtitle("Vaccinations by Day of Week by Top Covid States") +
-      theme(plot.title = element_text(hjust = 0.5)) +
-      xlab("Day Name") +
-      ylab("Occurences") +
-      labs(fill = "Occurences")
   })
   
   blank_theme <- theme_bw() +

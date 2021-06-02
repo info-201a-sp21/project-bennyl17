@@ -6,7 +6,7 @@ introduction_page <- tabPanel(
 
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
-  h1(""),
+  h1("Covid Map of the world"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
@@ -20,8 +20,9 @@ interactive_page_one <- tabPanel(
       tableOutput("world_table")
     )
   ),
-  h3(""),
+  h3("Vacination of Covid map of the united state"),
   plotlyOutput("US_map")
+  
 )
 
 interactive_page_two <- tabPanel(
