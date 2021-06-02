@@ -240,6 +240,7 @@ server <- function(input, output) {
     return(plot)
   })
   
+  # For output of pie chart through the use of functions from scripts
   output$washington_covid_cases <- renderPlot({
     pie_chart_df(WA_df)
   })
