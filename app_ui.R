@@ -2,7 +2,7 @@ introduction_page <- tabPanel(
   "Covid-19 Overview",
   h1("Introduction of Covid-19"),
   p("This is an introductory page into our shiny application..."),
-  img(src = "virus-picture.jpeg", width = 900, height = 500)
+  img(src = "virus-picture.jpeg", width = 600, height = 300)
 )
 
 interactive_page_one <- tabPanel(
