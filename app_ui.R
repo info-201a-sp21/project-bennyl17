@@ -43,7 +43,9 @@ interactive_page_one <- tabPanel(
     mainPanel(
       plotlyOutput("washington_map")
     )
-  )
+  ),
+  h2("A pie chart into washington covid cases distribution of ages"),
+  plotOutput("washington_covid_cases")
 )
 
 interactive_page_two <- tabPanel(
@@ -87,7 +89,10 @@ interactive_page_three <- tabPanel(
   ),
   mainPanel(
     plotOutput("covidratio")
-  )
+  ),
+  h2("barplot of Covid Ratio on 2021-3-1"),
+  plotOutput("covid_percentage_barplot")
+
 )
 
 summary_page <- tabPanel(

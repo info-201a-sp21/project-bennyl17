@@ -10,6 +10,7 @@ library(plotly)
 library(leaflet)
 library(tidyr)
 library(stringr)
+library(RColorBrewer)
 
 # Source the UI and Server files
 source("app_ui.R")

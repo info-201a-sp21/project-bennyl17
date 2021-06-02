@@ -8,6 +8,7 @@ server <- function(input, output) {
   vaccinations_df <- read.csv("data/us_state_vaccinations.csv",
                               stringsAsFactors = FALSE)
   map_df <- read.csv("data/world_data_leaflet.csv", stringsAsFactors = F)
+  source("scripts/chart Script 3.R")
   
   # Some data wrangling so that map_df is easier to use
   map_df <- map_df %>%
@@ -213,17 +214,49 @@ server <- function(input, output) {
       return(plot)
   })
   
-  # To create a better looking maps
+  # For rendering bar plot of page 3
+  output$covid_percentage_barplot <- renderPlot({
+    #Make sure that covid_df is suitable for the graph
+    updated_covid_df <- covid_df %>%
+      filter(continent != "") %>%
+      select(continent, new_cases, new_deaths, date) %>%
+      filter(new_deaths >= 0 & new_cases >= 0) %>%
+      filter(date == as.POSIXct("2021-3-1")) %>%
+      group_by(continent, date) %>%
+      summarise(new_cases = sum(new_cases, na.rm = T),
+                new_deaths = sum(new_deaths, na.rm = T),
+                percentage = round(new_deaths / new_cases * 100, 1),
+                .groups = "drop") %>%
+      mutate(day = as.numeric(format(as.Date(date), "%d")))
+    
+    # Plot the graph with trend lines
+    plot <- ggplot(data = updated_covid_df) +
+      geom_col(mapping = aes(x = continent, y = percentage, fill = continent)) +
+      theme(legend.position="none") +
+      ylab("Covid Ratio in Percentages") +
+      xlab("Continent") +
+      coord_flip()
+
+    return(plot)
+  })
+  
+  output$washington_covid_cases <- renderPlot({
+    pie_chart_df(WA_df)
+  })
+  
+  # To create a better looking maps using theme from ggplot
+  # these line of code is derived from Chapter 16 in the book by Michael Freeman
+  # and Joel Ross, called Programming Skills for Data Science
   blank_theme <- theme_bw() +
     theme(
-      axis.line = element_blank(),        # remove axis lines
-      axis.text = element_blank(),        # remove axis labels
-      axis.ticks = element_blank(),       # remove axis ticks
-      axis.title = element_blank(),       # remove axis titles
-      plot.background = element_blank(),  # remove gray background
-      panel.grid.major = element_blank(), # remove major grid lines
-      panel.grid.minor = element_blank(), # remove minor grid lines
-      panel.border = element_blank()      # remove border around plot
+      axis.line = element_blank(),
+      axis.text = element_blank(),
+      axis.ticks = element_blank(),
+      axis.title = element_blank(),
+      plot.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_blank()
     )
   
 }
