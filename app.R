@@ -9,6 +9,7 @@ library(ggplot2)
 library(plotly)
 library(leaflet)
 library(tidyr)
+library(stringr)
 
 # Source the UI and Server files
 source("app_ui.R")

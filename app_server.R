@@ -87,7 +87,7 @@ server <- function(input, output) {
     
     county_map <- map_data("county") %>%
       filter(region == "washington") %>%
-      rename(County = subregion) %>%
+      mutate(County = paste(str_to_title(subregion), "County", sep = " ")) %>%
       left_join(county_df, by = "County")
     
     county_plot <- ggplot(data = county_map) +
@@ -118,7 +118,7 @@ server <- function(input, output) {
     return(table)
   })
   
-  # Out the table concerning about the vaccination map
+  # Output the table concerning about the vaccination map
   output$vaccination_table <- renderTable({
     table <- vaccinations_df %>%
       filter(date == as.POSIXct("2021-05-08")) %>%
@@ -126,6 +126,17 @@ server <- function(input, output) {
       top_n(n = 5, wt = total_vaccinations) %>%
       arrange(desc(total_vaccinations))
 
+    return(table)
+  })
+  
+  # Output the table concerning about the vaccination map
+  output$washington_table <- renderTable({
+    table <- WA_df %>%
+      filter(WeekStartDate == as.POSIXct("29/11/2020")) %>%
+      select(County, TotalCases) %>%
+      top_n(n = 5, wt = TotalCases) %>%
+      arrange(desc(TotalCases))
+    
     return(table)
   })
   

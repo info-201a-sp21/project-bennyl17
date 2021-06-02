@@ -29,7 +29,7 @@ interactive_page_one <- tabPanel(
       leafletOutput("world_map")
     )
   ),
-  h2("Vacination of Covid map of the united state"),
+  h2("Vacination of Covid map of the United States"),
   sidebarLayout(position = "right",
     sidebarPanel(
       h4("Top 5 vaccinations states"),
@@ -39,7 +39,16 @@ interactive_page_one <- tabPanel(
       plotlyOutput("US_map")
     )
   ),
-  plotlyOutput("washington_map")
+  h2("Covid map of Cases in Washington"),
+  sidebarLayout(
+    sidebarPanel(
+      h4("Top 5 county of Covid cases"),
+      tableOutput("washington_table")
+    ),
+    mainPanel(
+      plotlyOutput("washington_map")
+    )
+  )
 )
 
 interactive_page_two <- tabPanel(
