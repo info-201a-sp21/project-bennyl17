@@ -126,7 +126,13 @@ summary_page <- tabPanel(
     vaccinated people did not match up. As the map shows, California is the 
     state with the most total vaccinations but it also wasnt a top 10 state with
     the most cases per 100,000. We can also see that none of the top 5 states
-    with vaccinations matched up with the top 10 states with most cases."),
+    with vaccinations matched up with the top 10 states with most cases. As we 
+    can see in the covid vaccines tab, none of the top ten states in the first 
+    box were listed in the bottom box with the top 5 states with total 
+    vaccinations. With this, we can see that they didnt really prioritize about 
+    getting the vaccine to the states that needed it most, but instead they 
+    prioritized going after the more popular and populated states such as 
+    California, Texas, New York, and Florida."),
   h2("Takeaway #3")
 )
 
