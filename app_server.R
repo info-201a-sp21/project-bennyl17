@@ -45,17 +45,40 @@ server <- function(input, output) {
     return(map)
   })
   
+  output$US_map <- renderPlotly({
+    vacination_certain <- vaccinations_df %>%
+      filter(date == as.POSIXct("2021-05-08")) %>%
+      mutate(location = tolower(location))
+    
+    state_shape <- map_data("state") %>%
+      rename(location = region) %>%
+      left_join(vacination_certain, by = "location")
+    
+    vaccination_map <- ggplot(data = state_shape) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = group,
+                      fill = total_vaccinations),
+        color = "Black",
+        size = .1,
+        alpha = 0.8,
+      ) +
+      labs(title = "Map on vaccinations") +
+      coord_map() +
+      scale_fill_continuous(low = "White", high = "Red") +
+      blank_theme
+    
+    vaccination_plotly <- ggplotly(vaccination_map)
+    
+    return(vaccination_plotly)
+  })
+  
   output$world_table <- renderTable({
     table <- covid_df %>%
       filter(date == "2021-05-01", continent != "") %>%
       select("location", input$data_types)
-
-    
     table <- table[order(table[tolower(input$data_types)],
                          decreasing = TRUE), ]
-    
     table <- head(table, 5)
-    
     return(table)
       
   })
@@ -169,6 +192,18 @@ server <- function(input, output) {
       ylab("Occurences") +
       labs(fill = "Occurences")
   })
+  
+  blank_theme <- theme_bw() +
+    theme(
+      axis.line = element_blank(),        # remove axis lines
+      axis.text = element_blank(),        # remove axis labels
+      axis.ticks = element_blank(),       # remove axis ticks
+      axis.title = element_blank(),       # remove axis titles
+      plot.background = element_blank(),  # remove gray background
+      panel.grid.major = element_blank(), # remove major grid lines
+      panel.grid.minor = element_blank(), # remove minor grid lines
+      panel.border = element_blank()      # remove border around plot
+    )
   
 }
 

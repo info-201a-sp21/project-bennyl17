@@ -7,17 +7,21 @@ introduction_page <- tabPanel(
 interactive_page_one <- tabPanel(
   "Covid-19 Map",
   h1(""),
-  sidebarPanel(
-    selectInput(
-      inputId = "data_types",
-      label = "types",
-      choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "data_types",
+        label = "types",
+        choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
+      )
+    ),
+    mainPanel(
+      leafletOutput("world_map"),
+      tableOutput("world_table")
     )
   ),
-  mainPanel(
-    leafletOutput("world_map"),
-    tableOutput("world_table")
-  )
+  h3(""),
+  plotlyOutput("US_map")
 )
 
 interactive_page_two <- tabPanel(
@@ -49,6 +53,7 @@ interactive_page_three <- tabPanel(
                    "Oceania", "South America")
     )
     #,submitButton("Apply Continent(s)", icon("globe-americas"))
+    # I have problems with this particular button
   ),
   mainPanel(
     plotOutput("covidratio")
