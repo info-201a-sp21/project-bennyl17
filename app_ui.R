@@ -40,7 +40,7 @@ interactive_page_three <- tabPanel(
 )
 
 summary_page <- tabPanel(
-  "title"
+  "Summary Takeaway"
 )
 
 ui <- fluidPage(
