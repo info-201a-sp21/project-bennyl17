@@ -15,8 +15,8 @@ introduction_page <- tabPanel(
   <a href=https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations'>
        USA COVID-19 Vaccinations</a></p>
   <p><br>Description:</br> This data set gives us information about how many 
-    daily vaccinations there are daily in every state. I believe that they are
-    partnered up with the CDC and numerous healthcare companies in order to
+    daily vaccinations there are daily in every state. They are partnered
+    up with the CDC and numerous healthcare companies in order to
     track the vaccination campaign in the US. This is a dataset where they
     update it daily as well.</p>
   <p> Second data set:
@@ -31,11 +31,11 @@ introduction_page <- tabPanel(
   <a href=https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard'>
        COVID-19 in Washington State</a></p>
   <p><br>Description:</br> The data was collected by the Washington state 
-    department of health COVID-10 in Washington State, where it has cases, 
-    hospitalizations, deaths, and vaccination by county in a format of XLSX 
-    file. Which I then translated into cases.csv file to make further 
-    investigation about cases of covid-19 in Washington. The data set talks 
-    about the county, cases, age and time.</p>"),
+    department of health. This dataset about COVID-19 in Washington State has
+    information on cases, hospitalizations, deaths, and vaccination by county
+    in a format of XLSX file. Which we then translated into cases.csv file to
+    make further investigations about cases of covid-19 in Washington. The data
+    set talks about the county, cases, age and time.</p>"),
   tags$br(),
   img(src = "virus-picture.jpeg", width = 600, height = 300),
   tags$p(id = "caption",
@@ -44,8 +44,8 @@ introduction_page <- tabPanel(
   h3("Summary Table:"),
   tableOutput("overview_table"),
   tags$p(id = "warning",
-         "Our data source is huge and most likely it will take a time to
-         load. So please be patient and sorry for any inconvenience occured")
+         "Our data sources are huge will take quite a bit of time to
+         load. So please be patient and sorry for any inconveniences.")
 )
 
 interactive_page_one <- tabPanel(
