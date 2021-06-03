@@ -168,7 +168,7 @@ interactive_page_three <- tabPanel(
            "This shows the scatter plot with a trend line showing
            different continent covid ratio on each day in March")
   ),
-  h2("barplot of Avg Covid Ratio During March"),
+  h2("Average Covid Ratio During March"),
   plotOutput("covid_percentage_barplot"),
   tags$p(id = "caption",
          "This is a bar plot showing the covid ratio averaging in the month
@@ -190,11 +190,11 @@ summary_page <- tabPanel(
     because this particular age group have great potentials to go outside which
     is the number one way to attract covid-19."),
   fluidRow(
-    column(4, tags$h5(id = "semi-bold", "World countries"),
+    column(4, tags$h5(id = "bold", "World countries"),
            tableOutput("world_table_sum")),
-    column(4, tags$h5(id = "semi-bold", "Washington Table"),
+    column(4, tags$h5(id = "bold", "Washington Table"),
            tableOutput("washington_table_sum")),
-    column(4, tags$h5(id = "semi-bold", "Washington Pie chart"),
+    column(4, tags$h5(id = "bold", "Washington Pie chart"),
            plotOutput("washington_covid_sum", height = "200px"))
   ),
   h2("Takeaway #2"),
@@ -211,7 +211,7 @@ summary_page <- tabPanel(
     prioritized going after the more popular and populated states such as
     California, Texas, New York, and Florida."),
   fluidRow(
-    column(6, tags$h5(id = "semi-bold", "Vaccination Table"),
+    column(6, tags$h5(id = "bold", "Vaccination Table"),
            tableOutput("vaccination_table_sum"))
   ),
 
@@ -224,7 +224,7 @@ summary_page <- tabPanel(
     accessibility to vaccines, that may affect the percentage of deaths. Not
     solely just the number of cases."),
   fluidRow(
-    column(4, tags$h5(id = "semi-bold", "Table of Covid Ratio"),
+    column(4, tags$h5(id = "bold", "Table of Covid Ratio"),
            tableOutput("covid_table_sum"))
   )
 )

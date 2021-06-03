@@ -263,6 +263,7 @@ server <- function(input, output) {
                 percentage = round(new_deaths / new_cases * 100, 1),
                 .groups = "drop") %>%
       arrange(desc(percentage))
+    positions <- updated_covid_df$continent
 
     # Plot the graph with trend lines
     plot <- ggplot(data = updated_covid_df) +
@@ -270,6 +271,7 @@ server <- function(input, output) {
       theme(legend.position = "none") +
       ylab("Covid Ratio in Percentages") +
       xlab("Continent") +
+      scale_x_discrete(limits = positions) +
       coord_flip()
 
     return(plot)
