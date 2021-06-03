@@ -8,10 +8,17 @@ server <- function(input, output) {
                               stringsAsFactors = FALSE)
   map_df <- read.csv("data/world_data_leaflet.csv", stringsAsFactors = F)
   source("scripts/chart Script 3.R")
+  source("scripts/aggregate Table Script.R")
 
   # Some data wrangling so that map_df is easier to use
   map_df <- map_df %>%
     select(-X)
+
+  # Summary table for overview page
+  output$overview_table <- renderTable({
+    summary_df(wa_df)
+  })
+  
 
   # Interactive map for the world for page one
   output$world_map <- renderLeaflet({
