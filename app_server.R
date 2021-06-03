@@ -110,6 +110,14 @@ server <- function(input, output) {
   
   # output the table concerning about the world map
   output$world_table <- renderTable({
+    world_table_func()
+  })
+  
+  output$world_table_sum <- renderTable({
+    world_table_func()
+  })
+  
+  world_table_func <- function() {
     table <- covid_df %>%
       filter(date == "2021-05-01", continent != "") %>%
       select("location", input$data_types)
@@ -117,29 +125,43 @@ server <- function(input, output) {
                          decreasing = TRUE), ]
     table <- head(table, 5)
     return(table)
-  })
+  }
   
   # Output the table concerning about the vaccination map
   output$vaccination_table <- renderTable({
+    vaccination_table_func()
+  })
+  output$vaccination_table_sum <- renderTable({
+    vaccination_table_func()
+  })
+  
+  vaccination_table_func <- function() {
     table <- vaccinations_df %>%
-      filter(date == as.POSIXct("2021-05-08")) %>%
+      filter(date == as.POSIXct("2021-05-08"),
+             location != "United States") %>%
       select(location, total_vaccinations) %>%
       top_n(n = 5, wt = total_vaccinations) %>%
       arrange(desc(total_vaccinations))
-
     return(table)
-  })
+  }
   
   # Output the table concerning about the vaccination map
   output$washington_table <- renderTable({
+    washington_table_func()
+  })
+  
+  output$washington_table_sum <- renderTable({
+    washington_table_func()
+  })
+  
+  washington_table_func <- function() {
     table <- WA_df %>%
       filter(WeekStartDate == as.POSIXct("29/11/2020")) %>%
       select(County, TotalCases) %>%
       top_n(n = 5, wt = TotalCases) %>%
       arrange(desc(TotalCases))
-    
     return(table)
-  })
+  }
   
   
   # For rendering bar plot on the second interactive page
@@ -236,12 +258,38 @@ server <- function(input, output) {
       ylab("Covid Ratio in Percentages") +
       xlab("Continent") +
       coord_flip()
-
+    
     return(plot)
+  })
+  
+  # For rendering bar plot in key take away
+  output$covid_table_sum <- renderTable({
+    #Make sure that covid_df is suitable for the table
+    updated_covid_df <- covid_df %>%
+      filter(continent != "") %>%
+      select(continent, new_cases, new_deaths, date) %>%
+      filter(new_deaths >= 0 & new_cases >= 0) %>%
+      filter(date >= as.POSIXct("2021-3-1") &
+               date < as.POSIXct("2021-4-1")) %>%
+      group_by(continent) %>%
+      summarise(new_cases = sum(new_cases, na.rm = T),
+                new_deaths = sum(new_deaths, na.rm = T),
+                percentage = round(new_deaths / new_cases * 100, 1),
+                .groups = "drop")
+    
+    table <- updated_covid_df %>%
+      select(continent, percentage) %>%
+      arrange(desc(percentage))
+    
+    return(table)
   })
   
   # For output of pie chart through the use of functions from scripts
   output$washington_covid_cases <- renderPlot({
+    pie_chart_df(WA_df)
+  })
+  
+  output$washington_covid_sum <- renderPlot({
     pie_chart_df(WA_df)
   })
   

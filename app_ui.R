@@ -14,20 +14,23 @@ introduction_page <- tabPanel(
 )
 
 interactive_page_one <- tabPanel(
-  "Covid-19 Map",
-  h1("Different Maps about covid-19"),
-  p("For the map interactive page, we used the covid 19 data of the world and 
-    the data about washington to generate two different maps on this page. This 
-    page will contain only maps where all of them will be interactive showing 
-    different types of map. The first map will be about the world. We will be 
+  "Covid-19 World and WA",
+  h1("Different Informations about covid-19"),
+  p("For the this interactive page, we used the covid 19 data of the world and 
+    the data about washington to generate two different maps on this page and a 
+    pie chart. This page will interactive maps and piechart showing different
+    level of information. The first map will be about the world. We will be 
     able to gain data from hovering over the markers. While the second 
-    map will be focused within the Washington State and its county."),
+    map will be focused within the Washington State and its county. The last pie
+    chart is to further investigate about Washington State"),
+  p("Possible questions answered in this page'"),
   p("Question Number one: Which country in the world contained the most cases
     of Covid-19?"),
   p("Question number two: Which age group in Washington had the most covid
     cases?"),
   p("Question number three: Which county have the most cases of covid-19 in
     the state of Washington?"),
+  p("What age group in Washington have the most covid cases"),
   h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(
@@ -130,9 +133,24 @@ interactive_page_three <- tabPanel(
 )
 
 summary_page <- tabPanel(
-  "Summary Takeaway",
+  "Key Takeaway",
+  h1("Key Take Aways from this Project"),
   h2("Takeaway #1"),
-  p(),
+  p("The first take away is that the Country that contains the most Covid cases
+    is the United States. Which we decided to investigate further into this
+    Country. We zoom in right where we are which is Washington. From the map,
+    we can see that the County that contain the most cases is King County,
+    which is where the University of Washington is located. Futhermore,
+    from the pie chart, we see that within Washington, the age group that get
+    the most amount of Covid cases is the 20 to 34. This is really reasonable
+    because this particular age group have great potentials to go outside which
+    is the number one way to attract covid-19."),
+  fluidRow(
+    column(4, h5("World countries"), tableOutput("world_table_sum")),
+    column(4, h5("Washington Table"), tableOutput("washington_table_sum")),
+    column(4, h5("Washington Pie chart"), plotOutput("washington_covid_sum", 
+                                                     height = "200px"))
+  ),
   h2("Takeaway #2"),
   p("We can see based on the vaccinations map and barplot that the states with
     the most cases per 100,000 people and the states with the most total 
@@ -146,6 +164,9 @@ summary_page <- tabPanel(
     getting the vaccine to the states that needed it most, but instead they 
     prioritized going after the more popular and populated states such as 
     California, Texas, New York, and Florida."),
+  fluidRow(
+    column(6, h5("Vaccination Table"), tableOutput("vaccination_table_sum"))
+  ),
   
   h2("Takeaway #3"),
   p("A final major takeaway comes from the Covid death percentages plots. As we
@@ -154,13 +175,16 @@ summary_page <- tabPanel(
     yielding a higher number of deaths, their percentage is still lower. With
     this, what we can takeaway is that there are many factors such as
     accessibility to vaccines, that may affect the percentage of deaths. Not
-    solely just the number of cases.")
+    solely just the number of cases."),
+  fluidRow(
+    column(4, h5("Table of Covid Ratio"), tableOutput("covid_table_sum"))
+  )
 )
 
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-    "Covid Project",
+    "Project Covid",
     introduction_page,
     interactive_page_one,
     interactive_page_two,

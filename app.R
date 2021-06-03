@@ -11,6 +11,10 @@ library(leaflet)
 library(tidyr)
 library(stringr)
 library(RColorBrewer)
+library(rsconnect)
+library(stats)
+library(maps)
+library(mapproj)
 
 # Source the UI and Server files
 source("app_ui.R")
