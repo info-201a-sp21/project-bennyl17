@@ -24,7 +24,8 @@ interactive_page_one <- tabPanel(
     map will be focused within the Washington State and its county."),
   p("Question Number one: Which country in the world contained the most cases
     of Covid-19?"),
-  p("Question number two: Which contry contains the most new cases of Covid?"),
+  p("Question number two: Which age group in Washington had the most covid
+    cases?"),
   p("Question number three: Which county have the most cases of covid-19 in
     the state of Washington?"),
   h2("Covid map of the world"),

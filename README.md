@@ -23,9 +23,9 @@ We chose to do our topic on covid just because of how much it has impacted our l
 
 ### Data-driven questions related to this domain
 
-1. **What state has the most fully vaccinated people?**
+1. **Which country in the world contained the most cases of Covid-19?**
    - _Description_: This question can be answered by sorting through and looking at the dataset to see which state has the most fully vaccinated amount of people.
-2. **Which continent had the highest cases, to deaths ratio in March 2021?**
+2. **Which continent had the highest death percentage in March 2021?**
    - _Description_: This question can be answered by analyzing the 2 columns in the dataset, and then dividing confirmed cases by deaths to find the highest ratio.
 3. **When will the rate of covid 19 per population will equal to the rate of vaccination?**
    - _Description_: In cases where there are no columns for rates, we would mutate a column that will calculate rates of covid and compare it to the rate of vaccinations to get the exact date.
@@ -58,7 +58,7 @@ We chose to do our topic on covid just because of how much it has impacted our l
    - _Number of rows_ : 2191
    - _Number of columns_ : 13
    - _Questions_:
-     - With this dataset we can answer our final question in the domain of interest: “When will the rate of covid 19 per population will equal to the rate of vaccination?”
-     - Which county has the most cases of covid-19
-     - What age group contacted the most covid-19?
+     - With this dataset we can answer our final question in the domain of interest: “Which country in the world contained the most cases of Covid-19?”
+     - Which age group in Washington had the most covid cases?
+     - Which county have the most cases of covid-19 in the state of Washington?
      - Which country has the least amount of cases of covid-19?
