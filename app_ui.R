@@ -10,7 +10,13 @@ introduction_page <- tabPanel(
     this disease and how vaccinations will come into play and we answer a few 
     questions related to that about the spread of people getting the 
     vaccination. Will that cause cases to go up? down?"),
-  img(src = "virus-picture.jpeg", width = 600, height = 300)
+  img(src = "virus-picture.jpeg", width = 600, height = 300),
+  tags$p(id = "caption",
+         "This images show the novel virus at a microscopic level"),
+  tags$br(),
+  tags$p(id = "warning",
+         "Our data source is huge and most likely it will take a time to 
+         load. So please be patient and sorry for any inconvenience occured")
 )
 
 interactive_page_one <- tabPanel(
@@ -24,30 +30,35 @@ interactive_page_one <- tabPanel(
     map will be focused within the Washington State and its county. The last pie
     chart is to further investigate about Washington State"),
   p("Possible questions answered in this page:"),
-  tags$p(id = "question",
-  "Question Number one: Which country in the world contained the most cases
-    of Covid-19?"),
-  tags$p(id = "question",
-  "Question number two: Which age group in Washington had the most covid
-    cases?"),
-  tags$p(id = "question",
+  
+  tags$ol(
+    tags$li(tags$p(id = "question",
+  "Which country in the world contained the most cases
+    of Covid-19?")),
+  tags$li(tags$p(id = "question",
+  " Which age group in Washington had the most covid cases?")),
+  tags$li(tags$p(id = "question",
   "Question number three: Which county have the most cases of covid-19 in
-    the state of Washington?"),
-  tags$p(id = "question",
-         "What age group in Washington have the most covid cases"),
+    the state of Washington?")),
+  tags$li(tags$p(id = "question",
+         "What age group in Washington have the most covid cases"))
+  ),
   h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(
       selectInput(
         inputId = "data_types",
-        label = "types",
+        label = "Types of Statistics",
         choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
       ),
-      h4(paste0("Top 5 countries of different statistics")),
+      h3(paste0("Top 5 countries of different statistics")),
       tableOutput("world_table")
     ),
     mainPanel(
-      leafletOutput("world_map")
+      leafletOutput("world_map"),
+      tags$p(id = "caption",
+             "A world map where each red circle shows the different statistics
+             of the selected input. This was updated on 2021-05-01")
     )
   ),
   h2("Covid Map of Cases in Washington"),
@@ -57,11 +68,18 @@ interactive_page_one <- tabPanel(
       tableOutput("washington_table")
     ),
     mainPanel(
-      plotlyOutput("washington_map")
+      plotlyOutput("washington_map"),
+      tags$p(id = "caption",
+             "A Washington State map showing the total cases of Covid
+             in each county, hovering will show the county names and cases.
+             This was updated on 29/11/2020")
     )
   ),
   h2("Washington Covid Cases Distribution of Ages"),
-  plotOutput("washington_covid_cases")
+  plotOutput("washington_covid_cases"),
+  tags$p(id = "caption",
+         "A pie chart showing the distribution of ages in washington
+         according to the ages")
 )
 
 interactive_page_two <- tabPanel(
@@ -73,15 +91,17 @@ interactive_page_two <- tabPanel(
     Specifically we toned down onto how many people get vaccinations each day of
     the week. With this, we were able to answer the following questions:
     "),
-  tags$p(id = "question",
-  "With the states most affected by covid, how has the exposure of the vaccine
-    been to civilians?"),
-  tags$p(id = "question",
-  "Among these most affected states, which day of the week was most common for 
-    people to get vaccinated?"),
-  tags$p(id = "question",
-  "Which state had the highest number of vaccination cases and where do they
-    rank among the top ten worst states based on covid cases?"),
+  tags$ol(
+    tags$li(tags$p(id = "question",
+    "With the states most affected by covid, how has the exposure of the vaccine
+      been to civilians?")),
+    tags$li(tags$p(id = "question",
+    "Among these most affected states, which day of the week was most common for 
+      people to get vaccinated?")),
+    tags$li(tags$p(id = "question",
+    "Which state had the highest number of vaccination cases and where do they
+      rank among the top ten worst states based on covid cases?"))
+  ),
   sidebarPanel(
     radioButtons(inputId = "state", 
                  label = "States",
@@ -91,7 +111,10 @@ interactive_page_two <- tabPanel(
                              "Oklahoma"))
   ),
   mainPanel(
-    plotOutput("bar")
+    plotOutput("bar"),
+    tags$p(id = "caption",
+           "An interactive bar plot showing vaccinations by day of the week
+           where the selected input will be the states")
   ),
   h2("Vacination of Covid map of the United States"),
   sidebarLayout(position = "right",
@@ -100,7 +123,11 @@ interactive_page_two <- tabPanel(
                   tableOutput("vaccination_table")
                 ),
                 mainPanel(
-                  plotlyOutput("US_map")
+                  plotlyOutput("US_map"),
+                  tags$p(id = "caption",
+                         "A map of Covid 19 vaccination in the USA where
+                         information about new york wasn't avaliable.
+                         This was updated on: 2021-05-08")
                 )
   ),
 )
@@ -117,13 +144,15 @@ interactive_page_three <- tabPanel(
     condense version of the scatter plot, providing insight on the average
     percentage of deaths through the whole month of March. With these 2
     visulizations, we can answer the following questions:"),
-  tags$p(id = "question",
-    "Which continent had the highest death percentage in March 2021?"),
-  tags$p(id = "question",
-         "Which continent had the lowest average deaths?"),
-  tags$p(id = "question",
+  tags$ol(
+    tags$li(tags$p(id = "question",
+    "Which continent had the highest death percentage in March 2021?")),
+    tags$li(tags$p(id = "question",
+         "Which continent had the lowest average deaths?")),
+  tags$li(tags$p(id = "question",
   "Which continent had the highest death percentage on the last day of March
-    (3-31-2021)?"),
+    (3-31-2021)?"))
+  ),
   sidebarPanel(
     checkboxGroupInput(
       inputId = "checkbox",
@@ -135,10 +164,16 @@ interactive_page_three <- tabPanel(
     )
   ),
   mainPanel(
-    plotOutput("covidratio")
+    plotOutput("covidratio"),
+    tags$p(id = "caption",
+           "This shows the scatter plot with a trend line showing
+           different continent covid ratio on each day in March")
   ),
   h2("barplot of Avg Covid Ratio During March"),
-  plotOutput("covid_percentage_barplot")
+  plotOutput("covid_percentage_barplot"),
+  tags$p(id = "caption",
+         "This is a bar plot showing the covid ratio averaging in the month
+         of March")
 
 )
 
