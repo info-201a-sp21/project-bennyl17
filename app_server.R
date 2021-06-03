@@ -66,20 +66,22 @@ server <- function(input, output) {
     # Left join the state shape to the vaccination
     state_shape <- map_data("state") %>%
       rename(location = region) %>%
-      left_join(vaccination_certain, by = "location")
+      left_join(vaccination_certain, by = "location") %>%
+      rename(Vaccinations = total_vaccinations)
 
     # Plot using ggplot then will add plotly to turn it into interactive
     vaccination_map <- ggplot(data = state_shape) +
       geom_polygon(
         mapping = aes(x = long, y = lat, group = location,
-                      fill = total_vaccinations),
+                      fill = Vaccinations),
         color = "Black",
         size = .1,
         alpha = 0.8,
       ) +
       labs(title = "Map on vaccinations") +
       coord_map() +
-      scale_fill_continuous(low = "White", high = "Red") +
+      scale_fill_continuous(name = "Total Vaccinations",
+                            low = "White", high = "Red") +
       blank_theme
 
     # Add ggplotly function to make it interactive
