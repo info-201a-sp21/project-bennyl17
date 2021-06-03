@@ -165,7 +165,7 @@ interactive_page_three <- tabPanel(
     )
   ),
   mainPanel(
-    plotOutput("covidratio"),
+    plotlyOutput("covidratio"),
     tags$p(id = "caption",
            "This shows the scatter plot with a trend line showing
            different continent covid ratio on each day in March")

@@ -222,7 +222,7 @@ server <- function(input, output) {
   })
 
   # For rendering interactive page of page 3
-  output$covidratio <- renderPlot({
+  output$covidratio <- renderPlotly({
     #Make sure that covid_df is suitable for the graph
     updated_covid_df <- covid_df %>%
       filter(continent %in% input$checkbox) %>%
@@ -249,7 +249,9 @@ server <- function(input, output) {
       ggtitle("Percentage of Deaths from Covid by Continent in March 2021") +
       labs(color = "Continents") +
       scale_x_continuous(name = "Day in March", breaks = seq(1, 31, 3))
-      return(plot)
+
+    plotly_covid <- ggplotly(plot)
+    return(plotly_covid)
   })
 
   # For rendering bar plot of page 3
