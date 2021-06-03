@@ -3,34 +3,34 @@ introduction_page <- tabPanel(
   h1("Introduction to our Covid-19 project"),
   p("For our group's project, we decided to look into how much covid has really
     affected the world as a whole. Throughout the project, we looked at not only
-    the worlds numbers, but also look in more specific areas such as the US and 
+    the worlds numbers, but also look in more specific areas such as the US and
     also Washington. Some of the main things that we were trying to answer were
-    how has covid affected the world throughout this year with the pandemic. 
-    Another thing that we thought was important to look into was the future of 
-    this disease and how vaccinations will come into play and we answer a few 
-    questions related to that about the spread of people getting the 
+    how has covid affected the world throughout this year with the pandemic.
+    Another thing that we thought was important to look into was the future of
+    this disease and how vaccinations will come into play and we answer a few
+    questions related to that about the spread of people getting the
     vaccination. Will that cause cases to go up? down?"),
   img(src = "virus-picture.jpeg", width = 600, height = 300),
   tags$p(id = "caption",
          "This images show the novel virus at a microscopic level"),
   tags$br(),
   tags$p(id = "warning",
-         "Our data source is huge and most likely it will take a time to 
+         "Our data source is huge and most likely it will take a time to
          load. So please be patient and sorry for any inconvenience occured")
 )
 
 interactive_page_one <- tabPanel(
   "Covid-19 World and WA",
   h1("Different Informations about covid-19"),
-  p("For the this interactive page, we used the covid 19 data of the world and 
-    the data about washington to generate two different maps on this page and a 
+  p("For the this interactive page, we used the covid 19 data of the world and
+    the data about washington to generate two different maps on this page and a
     pie chart. This page will interactive maps and piechart showing different
-    level of information. The first map will be about the world. We will be 
-    able to gain data from hovering over the markers. While the second 
+    level of information. The first map will be about the world. We will be
+    able to gain data from hovering over the markers. While the second
     map will be focused within the Washington State and its county. The last pie
     chart is to further investigate about Washington State"),
   p("Possible questions answered in this page:"),
-  
+
   tags$ol(
     tags$li(tags$p(id = "question",
   "Which country in the world contained the most cases
@@ -85,8 +85,8 @@ interactive_page_one <- tabPanel(
 interactive_page_two <- tabPanel(
   "Covid Vaccines",
   h1("Covid Vaccines"),
-  p("For this interactive barplot, we wanted to show how the vaccine has 
-    positively affected these ten states. We chose to talk about these ten 
+  p("For this interactive barplot, we wanted to show how the vaccine has
+    positively affected these ten states. We chose to talk about these ten
     states because they were the states with the most cases per 100,000 people.
     Specifically we toned down onto how many people get vaccinations each day of
     the week. With this, we were able to answer the following questions:
@@ -96,16 +96,16 @@ interactive_page_two <- tabPanel(
     "With the states most affected by covid, how has the exposure of the vaccine
       been to civilians?")),
     tags$li(tags$p(id = "question",
-    "Among these most affected states, which day of the week was most common for 
+    "Among these most affected states, which day of the week was most common for
       people to get vaccinated?")),
     tags$li(tags$p(id = "question",
     "Which state had the highest number of vaccination cases and where do they
       rank among the top ten worst states based on covid cases?"))
   ),
   sidebarPanel(
-    radioButtons(inputId = "state", 
+    radioButtons(inputId = "state",
                  label = "States",
-                 choices = c("North Dakota", "Rhode Island", 
+                 choices = c("North Dakota", "Rhode Island",
                              "South Dakota", "Utah", "Tennessee",
                              "Arizona", "Iowa", "Nebraska", "Wisconsin",
                              "Oklahoma"))
@@ -123,7 +123,7 @@ interactive_page_two <- tabPanel(
                   tableOutput("vaccination_table")
                 ),
                 mainPanel(
-                  plotlyOutput("US_map"),
+                  plotlyOutput("us_map"),
                   tags$p(id = "caption",
                          "A map of Covid 19 vaccination in the USA where
                          information about new york wasn't avaliable.
@@ -131,7 +131,6 @@ interactive_page_two <- tabPanel(
                 )
   ),
 )
-
 
 interactive_page_three <- tabPanel(
   "Percentage of Deaths in March 2021",
@@ -157,9 +156,9 @@ interactive_page_three <- tabPanel(
     checkboxGroupInput(
       inputId = "checkbox",
       label = h3("Select Continent"),
-      choices = c("Africa",  "Asia", "Europe", "North America", 
+      choices = c("Africa",  "Asia", "Europe", "North America",
                   "Oceania", "South America"),
-      selected = c("Africa",  "Asia", "Europe", "North America", 
+      selected = c("Africa",  "Asia", "Europe", "North America",
                    "Oceania", "South America")
     )
   ),
@@ -191,28 +190,31 @@ summary_page <- tabPanel(
     because this particular age group have great potentials to go outside which
     is the number one way to attract covid-19."),
   fluidRow(
-    column(4, h5("World countries"), tableOutput("world_table_sum")),
-    column(4, h5("Washington Table"), tableOutput("washington_table_sum")),
-    column(4, h5("Washington Pie chart"), plotOutput("washington_covid_sum", 
-                                                     height = "200px"))
+    column(4, tags$h5(id = "semi-bold", "World countries"),
+           tableOutput("world_table_sum")),
+    column(4, tags$h5(id = "semi-bold", "Washington Table"),
+           tableOutput("washington_table_sum")),
+    column(4, tags$h5(id = "semi-bold", "Washington Pie chart"),
+           plotOutput("washington_covid_sum", height = "200px"))
   ),
   h2("Takeaway #2"),
   p("We can see based on the vaccinations map and barplot that the states with
-    the most cases per 100,000 people and the states with the most total 
-    vaccinated people did not match up. As the map shows, California is the 
+    the most cases per 100,000 people and the states with the most total
+    vaccinated people did not match up. As the map shows, California is the
     state with the most total vaccinations but it also wasnt a top 10 state with
     the most cases per 100,000. We can also see that none of the top 5 states
-    with vaccinations matched up with the top 10 states with most cases. As we 
-    can see in the covid vaccines tab, none of the top ten states in the first 
-    box were listed in the bottom box with the top 5 states with total 
-    vaccinations. With this, we can see that they didnt really prioritize about 
-    getting the vaccine to the states that needed it most, but instead they 
-    prioritized going after the more popular and populated states such as 
+    with vaccinations matched up with the top 10 states with most cases. As we
+    can see in the covid vaccines tab, none of the top ten states in the first
+    box were listed in the bottom box with the top 5 states with total
+    vaccinations. With this, we can see that they didnt really prioritize about
+    getting the vaccine to the states that needed it most, but instead they
+    prioritized going after the more popular and populated states such as
     California, Texas, New York, and Florida."),
   fluidRow(
-    column(6, h5("Vaccination Table"), tableOutput("vaccination_table_sum"))
+    column(6, tags$h5(id = "semi-bold", "Vaccination Table"),
+           tableOutput("vaccination_table_sum"))
   ),
-  
+
   h2("Takeaway #3"),
   p("A final major takeaway comes from the Covid death percentages plots. As we
     can see, Africa has the highest death toll per cases out of all the
@@ -222,7 +224,8 @@ summary_page <- tabPanel(
     accessibility to vaccines, that may affect the percentage of deaths. Not
     solely just the number of cases."),
   fluidRow(
-    column(4, h5("Table of Covid Ratio"), tableOutput("covid_table_sum"))
+    column(4, tags$h5(id = "semi-bold", "Table of Covid Ratio"),
+           tableOutput("covid_table_sum"))
   )
 )
 
