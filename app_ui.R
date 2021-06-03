@@ -38,10 +38,9 @@ interactive_page_one <- tabPanel(
   tags$li(tags$p(id = "question",
   " Which age group in Washington had the most covid cases?")),
   tags$li(tags$p(id = "question",
-  "Question number three: Which county have the most cases of covid-19 in
-    the state of Washington?")),
+  "Which county have the most cases of covid-19 in the state of Washington?")),
   tags$li(tags$p(id = "question",
-         "What age group in Washington have the most covid cases"))
+         "What age group in Washington have the most covid cases?"))
   ),
   h2("Covid map of the world"),
   sidebarLayout(
@@ -95,18 +94,18 @@ interactive_page_two <- tabPanel(
     "),
   tags$ol(
     tags$li(tags$p(id = "question",
-    "With the states most affected by covid, how has the exposure of the vaccine
-      been to civilians?")),
+    "Do any of the top 5 vaccinated states rank in the top 10 states with
+    the most covid cases per 100,000 people?")),
     tags$li(tags$p(id = "question",
     "Among these most affected states, which day of the week was most common for
       people to get vaccinated?")),
     tags$li(tags$p(id = "question",
-    "Which state had the highest number of vaccination cases and where do they
+    "Which state had the highest number of vaccination cases and do they
       rank among the top ten worst states based on covid cases?"))
   ),
   sidebarPanel(
     radioButtons(inputId = "state",
-                 label = "States",
+                 label = "Top 10 States with most Cases per 100,000",
                  choices = c("North Dakota", "Rhode Island",
                              "South Dakota", "Utah", "Tennessee",
                              "Arizona", "Iowa", "Nebraska", "Wisconsin",
@@ -118,7 +117,14 @@ interactive_page_two <- tabPanel(
            "An interactive bar plot showing vaccinations by day of the week
            where the selected input will be the states")
   ),
-  h2("Vacination of Covid map of the United States"),
+  h2("Vaccination of Covid map of the United States"),
+  fluidRow(
+    column(8),
+    column(4, "Below we decided to include an aggregate table of the
+               top 5 states in the US getting vaccinations. The table
+               decends from highest to lowest on the number of people
+               getting vaccinated.")
+  ),
   sidebarLayout(position = "right",
                 sidebarPanel(
                   h4("Top 5 vaccinations states"),
@@ -141,8 +147,8 @@ interactive_page_three <- tabPanel(
     represented each Continent (excluding Antarctica) with data on the
     percentage of deaths from covid cases through the month of March 2021.
     The scatter plot provides a detailed insight on the percentages of
-    deaths through all of March 2021. While the bar plot is an easier to read,
-    condense version of the scatter plot, providing insight on the average
+    deaths through all of March 2021. While the bar plot is an easier to read
+    condensed version of the scatter plot, it provides insight on the average
     percentage of deaths through the whole month of March. With these 2
     visulizations, we can answer the following questions:"),
   tags$ol(
@@ -211,7 +217,9 @@ summary_page <- tabPanel(
     vaccinations. With this, we can see that they didnt really prioritize about
     getting the vaccine to the states that needed it most, but instead they
     prioritized going after the more popular and populated states such as
-    California, Texas, New York, and Florida."),
+    California, Texas, New York, and Florida. With these visulizations we
+    were also able to learn that Friday was the most common day for people
+    in those top 10 states to get vaccinated."),
   fluidRow(
     column(6, tags$h5(id = "bold", "Vaccination Table"),
            tableOutput("vaccination_table_sum"))
