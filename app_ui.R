@@ -123,7 +123,7 @@ interactive_page_three <- tabPanel(
   mainPanel(
     plotOutput("covidratio")
   ),
-  h2("barplot of Covid Ratio on 2021-3-1"),
+  h2("barplot of Avg Covid Ratio During March"),
   plotOutput("covid_percentage_barplot")
 
 )
