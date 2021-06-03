@@ -43,7 +43,7 @@ server <- function(input, output) {
         radius = world_covid_df[[paste0(input$data_types, "_r")]],
         stroke = FALSE,
         popup = ~paste("<b>Location:</b>", location, "<br/>",
-                       "<b>People:</b>", world_covid_df[[input$data_types]])
+                       "<b>Value:</b>", world_covid_df[[input$data_types]])
       )
 
     return(map)
@@ -80,7 +80,7 @@ server <- function(input, output) {
     return(vaccination_plotly)
   })
 
-  # Output an interactive map of washington and its county
+  # Output an interactive map of Washington and its county
   output$washington_map <- renderPlotly({
     # Data wrangling to select a certain date
     county_df <- wa_df %>%
@@ -104,9 +104,10 @@ server <- function(input, output) {
       ) +
       labs(title = paste0("Map of Washington state covid cases")) +
       coord_map() +
-      scale_fill_continuous(low = "White", high = "Red") +
+      scale_fill_continuous(low = "White", high = "Red",
+                            name = "Total Cases") +
       blank_theme
-
+    
     # Apply ggplotly function to make it interactive
     map <- ggplotly(county_plot)
     return(map)
@@ -130,6 +131,7 @@ server <- function(input, output) {
     table <- table[order(table[tolower(input$data_types)],
                          decreasing = TRUE), ]
     table <- head(table, 5)
+    colnames(table) <- c("location", gsub("_", " ", input$data_types))
     return(table)
   }
 
@@ -152,6 +154,7 @@ server <- function(input, output) {
       select(location, total_vaccinations) %>%
       top_n(n = 5, wt = total_vaccinations) %>%
       arrange(desc(total_vaccinations))
+    colnames(table) <- c("location", "total vaccinations")
     return(table)
   }
 
@@ -172,6 +175,7 @@ server <- function(input, output) {
       select(County, TotalCases) %>%
       top_n(n = 5, wt = TotalCases) %>%
       arrange(desc(TotalCases))
+    colnames(table) <- c("County", "Total Cases")
     return(table)
   }
 

@@ -49,7 +49,9 @@ interactive_page_one <- tabPanel(
       selectInput(
         inputId = "data_types",
         label = "Types of Statistics",
-        choices = c("total_cases", "total_deaths", "new_cases", "new_deaths")
+        choices = list("Total Cases" = "total_cases",
+                       "Total Deaths" = "total_deaths",
+                       "New Cases" = "new_cases", "New Deaths" = "new_deaths")
       ),
       h3(paste0("Top 5 countries of different statistics")),
       tableOutput("world_table")
