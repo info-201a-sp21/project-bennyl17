@@ -1,8 +1,8 @@
 introduction_page <- tabPanel(
   "Covid-19 Overview",
   h1("Introduction to our Covid-19 project"),
-  p("For our groups project, we decided to look into how much covid hasa really
-    affected the world as a whole. Throughout the project, we look into not only
+  p("For our group's project, we decided to look into how much covid has really
+    affected the world as a whole. Throughout the project, we looked at not only
     the worlds numbers, but also look in more specific areas such as the US and 
     also Washington. Some of the main things that we were trying to answer were
     how has covid affected the world throughout this year with the pandemic. 
@@ -23,14 +23,18 @@ interactive_page_one <- tabPanel(
     able to gain data from hovering over the markers. While the second 
     map will be focused within the Washington State and its county. The last pie
     chart is to further investigate about Washington State"),
-  p("Possible questions answered in this page'"),
-  p("Question Number one: Which country in the world contained the most cases
+  p("Possible questions answered in this page:"),
+  tags$p(id = "question",
+  "Question Number one: Which country in the world contained the most cases
     of Covid-19?"),
-  p("Question number two: Which age group in Washington had the most covid
+  tags$p(id = "question",
+  "Question number two: Which age group in Washington had the most covid
     cases?"),
-  p("Question number three: Which county have the most cases of covid-19 in
+  tags$p(id = "question",
+  "Question number three: Which county have the most cases of covid-19 in
     the state of Washington?"),
-  p("What age group in Washington have the most covid cases"),
+  tags$p(id = "question",
+         "What age group in Washington have the most covid cases"),
   h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(
@@ -46,7 +50,7 @@ interactive_page_one <- tabPanel(
       leafletOutput("world_map")
     )
   ),
-  h2("Covid map of Cases in Washington"),
+  h2("Covid Map of Cases in Washington"),
   sidebarLayout(position = "right",
     sidebarPanel(
       h4("Top 5 county of Covid cases"),
@@ -56,7 +60,7 @@ interactive_page_one <- tabPanel(
       plotlyOutput("washington_map")
     )
   ),
-  h2("A pie chart into washington covid cases distribution of ages"),
+  h2("Washington Covid Cases Distribution of Ages"),
   plotOutput("washington_covid_cases")
 )
 
@@ -69,11 +73,14 @@ interactive_page_two <- tabPanel(
     Specifically we toned down onto how many people get vaccinations each day of
     the week. With this, we were able to answer the following questions:
     "),
-  p("With the states most affected by covid, how has the exposure of the vaccine
+  tags$p(id = "question",
+  "With the states most affected by covid, how has the exposure of the vaccine
     been to civilians?"),
-  p("Among these most affected states, which day of the week was most common for 
+  tags$p(id = "question",
+  "Among these most affected states, which day of the week was most common for 
     people to get vaccinated?"),
-  p("Which state had the highest number of vaccination cases and where do they
+  tags$p(id = "question",
+  "Which state had the highest number of vaccination cases and where do they
     rank among the top ten worst states based on covid cases?"),
   sidebarPanel(
     radioButtons(inputId = "state", 
@@ -110,9 +117,12 @@ interactive_page_three <- tabPanel(
     condense version of the scatter plot, providing insight on the average
     percentage of deaths through the whole month of March. With these 2
     visulizations, we can answer the following questions:"),
-  p("Which continent had the highest death percentage in March 2021?"),
-  p("Which continent had the lowest average deaths?"),
-  p("Which continent had the highest death percentage on the last day of March
+  tags$p(id = "question",
+    "Which continent had the highest death percentage in March 2021?"),
+  tags$p(id = "question",
+         "Which continent had the lowest average deaths?"),
+  tags$p(id = "question",
+  "Which continent had the highest death percentage on the last day of March
     (3-31-2021)?"),
   sidebarPanel(
     checkboxGroupInput(
@@ -182,7 +192,7 @@ summary_page <- tabPanel(
 )
 
 ui <- fluidPage(
-  includeCSS("style.css"),
+  includeCSS("www/style.css"),
   navbarPage(
     "Project Covid",
     introduction_page,

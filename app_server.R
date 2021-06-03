@@ -249,7 +249,8 @@ server <- function(input, output) {
       summarise(new_cases = sum(new_cases, na.rm = T),
                 new_deaths = sum(new_deaths, na.rm = T),
                 percentage = round(new_deaths / new_cases * 100, 1),
-                .groups = "drop")
+                .groups = "drop") %>%
+      arrange(desc(percentage))
     
     # Plot the graph with trend lines
     plot <- ggplot(data = updated_covid_df) +
@@ -262,7 +263,7 @@ server <- function(input, output) {
     return(plot)
   })
   
-  # For rendering bar plot in key take away
+  # For rendering table in key take away
   output$covid_table_sum <- renderTable({
     #Make sure that covid_df is suitable for the table
     updated_covid_df <- covid_df %>%
