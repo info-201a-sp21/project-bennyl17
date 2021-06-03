@@ -221,13 +221,13 @@ server <- function(input, output) {
       filter(continent != "") %>%
       select(continent, new_cases, new_deaths, date) %>%
       filter(new_deaths >= 0 & new_cases >= 0) %>%
-      filter(date == as.POSIXct("2021-3-1")) %>%
-      group_by(continent, date) %>%
+      filter(date >= as.POSIXct("2021-3-1") &
+               date < as.POSIXct("2021-4-1")) %>%
+      group_by(continent) %>%
       summarise(new_cases = sum(new_cases, na.rm = T),
                 new_deaths = sum(new_deaths, na.rm = T),
                 percentage = round(new_deaths / new_cases * 100, 1),
-                .groups = "drop") %>%
-      mutate(day = as.numeric(format(as.Date(date), "%d")))
+                .groups = "drop")
     
     # Plot the graph with trend lines
     plot <- ggplot(data = updated_covid_df) +
