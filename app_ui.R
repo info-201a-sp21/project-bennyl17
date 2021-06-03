@@ -23,10 +23,10 @@ interactive_page_one <- tabPanel(
     able to gain data from hovering over the markers. While the second 
     map will be focused within the Washington State and its county."),
   p("Question Number one: Which country in the world contained the most cases
-    of Covid-19"),
-  p("Question number two: Which contry contains the most new cases of Covid"),
+    of Covid-19?"),
+  p("Question number two: Which contry contains the most new cases of Covid?"),
   p("Question number three: Which county have the most cases of covid-19 in
-    the state of Washington"),
+    the state of Washington?"),
   h2("Covid map of the world"),
   sidebarLayout(
     sidebarPanel(
@@ -98,6 +98,18 @@ interactive_page_two <- tabPanel(
 interactive_page_three <- tabPanel(
   "Percentage of Deaths in March 2021",
   h1("Death Charts"),
+  p("On this page we decided to create an interactive scatter plot which
+    represented each Continent (excluding Antarctica) with data on the
+    percentage of deaths from covid cases through the month of March 2021.
+    The scatter plot provides a detailed insight on the percentages of
+    deaths through all of March 2021. While the bar plot is an easier to read,
+    condense version of the scatter plot, providing insight on the average
+    percentage of deaths through the whole month of March. With these 2
+    visulizations, we can answer the following questions:"),
+  p("Which continent had the highest death percentage in March 2021?"),
+  p("Which continent had the lowest average deaths?"),
+  p("Which continent had the highest death percentage on the last day of March
+    (3-31-2021)?"),
   sidebarPanel(
     checkboxGroupInput(
       inputId = "checkbox",
