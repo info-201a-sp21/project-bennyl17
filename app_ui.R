@@ -168,11 +168,11 @@ interactive_page_three <- tabPanel(
            "This shows the scatter plot with a trend line showing
            different continent covid ratio on each day in March")
   ),
-  h2("Average Covid Ratio During March"),
+  h2("Average Percentages of Deaths per Continent in March 2021"),
   plotOutput("covid_percentage_barplot"),
   tags$p(id = "caption",
-         "This is a bar plot showing the covid ratio averaging in the month
-         of March")
+         "This is a bar plot showing average percentages of deaths from Covid
+         cases in the month of March 2021")
 
 )
 
@@ -224,7 +224,8 @@ summary_page <- tabPanel(
     accessibility to vaccines, that may affect the percentage of deaths. Not
     solely just the number of cases."),
   fluidRow(
-    column(4, tags$h5(id = "bold", "Table of Covid Ratio"),
+    column(4, tags$h5(id = "bold", "Table of Covid deaths to cases
+                      percentages"),
            tableOutput("covid_table_sum"))
   )
 )

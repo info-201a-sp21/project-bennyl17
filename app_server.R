@@ -269,7 +269,7 @@ server <- function(input, output) {
     plot <- ggplot(data = updated_covid_df) +
       geom_col(mapping = aes(x = continent, y = percentage, fill = continent)) +
       theme(legend.position = "none") +
-      ylab("Covid Ratio in Percentages") +
+      ylab("Percentage %") +
       xlab("Continent") +
       scale_x_discrete(limits = positions) +
       coord_flip()
