@@ -48,10 +48,10 @@ We chose to do our topic on covid just because of how much it has impacted our l
    - _Number of rows_ : 87,093
    - _Number of columns_ : 59
    - _Questions_:
-     - Using this dataset we can use it to address the second question in the domain of interest: “Which continent had the highest cases, to deaths ratio in March 2021?”
-     - Which month had the highest mortality rate?
-     - What were the new cases to new deaths ratio?
-     - Which country had the highest mortality to cases ratio?
+     - Using this dataset we can use it to address the second question in the domain of interest: “Which continent had the highest death percentage in March 2021?”
+     - Which continent had the lowest average deaths?
+     - Which continent had the highest death percentage on the last day of March (3-31-2021)?
+     - Which continent had the lowest death percentage?
 3. **[COVID-19 in Washington State](https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard)**
    - _URL Link_: https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard
    - _Description_: The data was collected by the Washington state department of health COVID-10 in Washington State, where it has cases, hospitalizations, deaths, and vaccination by county in a format of XLSX file. Which I then translated into cases.csv file to make further investigation about cases of covid-19 in Washington. The data set talks about the county, cases, age and time.
