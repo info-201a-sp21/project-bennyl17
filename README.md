@@ -2,7 +2,10 @@
 
 By: Benny Leung, Rami Wallaia, Nathan Tuan Lee, Athiwat Pathomtajeancharoen
 
-Go to [index page](https://info-201a-sp21.github.io/project-bennyl17/index)
+Go to [Shiny app](https://athiwatp.shinyapps.io/Project_Covid/)\
+Shiny App Url: https://athiwatp.shinyapps.io/Project_Covid/
+
+Go to [index page](https://info-201a-sp21.github.io/project-bennyl17/index)\
 index url: https://info-201a-sp21.github.io/project-bennyl17/index
 
 ## Domain of Interest
