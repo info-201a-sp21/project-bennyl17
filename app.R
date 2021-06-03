@@ -14,7 +14,6 @@ library(rsconnect)
 library(stats)
 library(maps)
 library(mapproj)
-library(knitr)
 
 # Source the UI and Server files
 source("app_ui.R")
