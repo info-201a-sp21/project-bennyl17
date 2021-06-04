@@ -11,26 +11,26 @@ introduction_page <- tabPanel(
     questions related to that about the spread of people getting the
     vaccination. Will that cause cases to go up? down?"),
   h3("About our data sources:"),
-  HTML("<p> First data set:
+  HTML("<p><b>First data set:</b>
   <a href=https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations'>
        USA COVID-19 Vaccinations</a>
-  <br>Description:</br> This data set gives us information about how many 
+  <br><b>Description:</b></br> This data set gives us information about how many 
     daily vaccinations there are daily in every state. They are partnered
     up with the CDC and numerous healthcare companies in order to
     track the vaccination campaign in the US. This is a dataset where they
     update it daily as well.</p>
-  <p> Second data set:
+  <p><b>Second data set:</b>
   <a href= https://ourworldindata.org/covid-deaths'>
        Coronavirus (COVID-19) Deaths</a>
-  <br>Description:</br>The data was collected by a team of researchers and
-    statisticians who drew data from a combination of data sources, lab
+  <br><b>Description:</b></br>The data was collected by a team of researchers 
+    and statisticians who drew data from a combination of data sources, lab
     reportings, and disease surveillance. The data is mainly about the deaths
     from coronavirus, with information about other stuff available through
     the csv file.</p>
-  <p> Third data set:
+  <p><b>Third data set:</b>
   <a href=https://www.doh.wa.gov/Emergencies/COVID19/DataDashboard'>
        COVID-19 in Washington State</a>
-  <br>Description:</br> The data was collected by the Washington state 
+  <br><b>Description:</b></br> The data was collected by the Washington state
     department of health. This dataset about COVID-19 in Washington State has
     information on cases, hospitalizations, deaths, and vaccination by county
     in a format of XLSX file. Which we then translated into cases.csv file to
@@ -41,6 +41,20 @@ introduction_page <- tabPanel(
   tags$p(id = "caption",
          "This images show the novel virus at a microscopic level"),
   tags$br(),
+  HTML("<p><br><b>Descriptions:</b></br>
+       We added this summarized table to show the top ten confirm cases in
+       different county within Washington. With this, we broke it down by age
+       group to let the audience see what group of people were more likely to
+       get it. From the table, we were able to identify that King County contain
+       the highest amount of confirm cases. We were able to also see that people
+       ages 20-34 were more likely to get it compared to every other age group
+       (a common trend in almost every county). If we were to compare the county
+       between the first and the rest, we will see a significant jump compared
+       to other. As you can see that king county contains almost double of the
+       second place. Another common trend that we can see from the table is that 
+       the ages 80+ group are the least to get Covid-19. This is most likely due
+       to because young adult still goes out normally while elders are more
+       likely to stay home.</p>"),
   h3("Summary Table:"),
   tableOutput("overview_table"),
   tags$p(id = "warning",
@@ -92,6 +106,12 @@ interactive_page_one <- tabPanel(
     )
   ),
   h2("Covid Map of Cases in Washington"),
+  fluidRow(
+    column(8),
+    column(4, "Below we decided to include an aggregate table of the
+               top 5 County in Washington with most cases. The table
+               decends from highest to lowest on the number of cases")
+  ),
   sidebarLayout(position = "right",
     sidebarPanel(
       h4("Top 5 county of Covid cases"),
@@ -108,8 +128,9 @@ interactive_page_one <- tabPanel(
   h2("Washington Covid Cases Distribution of Ages"),
   plotOutput("washington_covid_cases"),
   tags$p(id = "caption",
-         "A pie chart showing the distribution of ages in washington
-         according to the ages")
+         "A pie chart showing the distribution of ages who recieved Covid within
+         Washington. This is similar to the summary table on the overview page.
+         We can clearly see that Age 20 to 34 is the most significant one")
 )
 
 interactive_page_two <- tabPanel(

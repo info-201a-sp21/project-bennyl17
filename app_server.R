@@ -16,7 +16,16 @@ server <- function(input, output) {
 
   # Summary table for overview page
   output$overview_table <- renderTable({
-    summary_df(wa_df)
+    table <- summary_df(wa_df)
+    table <- table %>%
+      rename("Confirmed Cases" = cases,
+             "Ages 0-19" = Age.0.19, 
+             "Ages 20-34" = Age.20.34, 
+             "Ages 35-49" = Age.35.49, 
+             "Ages 50-64" = Age.50.64, 
+             "Ages 65-79" = Age.65.79, 
+             "Ages 80+" = Age.80.)
+    return(table)
   })
   
 
@@ -67,12 +76,14 @@ server <- function(input, output) {
     state_shape <- map_data("state") %>%
       rename(location = region) %>%
       left_join(vaccination_certain, by = "location") %>%
-      rename(Vaccinations = total_vaccinations)
+      rename(Vaccinations = total_vaccinations,
+             Location = location) %>%
+      mutate(Location = str_to_title(Location))
 
     # Plot using ggplot then will add plotly to turn it into interactive
     vaccination_map <- ggplot(data = state_shape) +
       geom_polygon(
-        mapping = aes(x = long, y = lat, group = location,
+        mapping = aes(x = long, y = lat, group = Location,
                       fill = Vaccinations),
         color = "Black",
         size = .1,
@@ -100,13 +111,14 @@ server <- function(input, output) {
     county_map <- map_data("county") %>%
       filter(region == "washington") %>%
       mutate(County = paste(str_to_title(subregion), "County", sep = " ")) %>%
-      left_join(county_df, by = "County")
+      left_join(county_df, by = "County") %>%
+      rename(Cases = TotalCases)
 
     # Plot the map with ggplot
     county_plot <- ggplot(data = county_map) +
       geom_polygon(
         mapping = aes(x = long, y = lat, group = County,
-                      fill =  TotalCases),
+                      fill =  Cases),
         color = "Black",
         size = .1,
         alpha = 0.8,
@@ -286,6 +298,7 @@ server <- function(input, output) {
       theme(legend.position = "none") +
       ylab("Percentage %") +
       xlab("Continent") +
+      labs(title = "Percentages of Covid Death To Cases Per Continents") +
       scale_x_discrete(limits = positions) +
       coord_flip()
 
