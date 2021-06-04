@@ -14,7 +14,7 @@ introduction_page <- tabPanel(
   HTML("<p><b>First data set:</b>
   <a href=https://www.kaggle.com/paultimothymooney/usa-covid19-vaccinations'>
        USA COVID-19 Vaccinations</a>
-  <br><b>Description:</b></br> This data set gives us information about how many 
+  <br><b>Description:</b></br> This data set gives us information about how many
     daily vaccinations there are daily in every state. They are partnered
     up with the CDC and numerous healthcare companies in order to
     track the vaccination campaign in the US. This is a dataset where they
@@ -22,7 +22,7 @@ introduction_page <- tabPanel(
   <p><b>Second data set:</b>
   <a href= https://ourworldindata.org/covid-deaths'>
        Coronavirus (COVID-19) Deaths</a>
-  <br><b>Description:</b></br>The data was collected by a team of researchers 
+  <br><b>Description:</b></br>The data was collected by a team of researchers
     and statisticians who drew data from a combination of data sources, lab
     reportings, and disease surveillance. The data is mainly about the deaths
     from coronavirus, with information about other stuff available through
@@ -51,7 +51,7 @@ introduction_page <- tabPanel(
        (a common trend in almost every county). If we were to compare the county
        between the first and the rest, we will see a significant jump compared
        to other. As you can see that king county contains almost double of the
-       second place. Another common trend that we can see from the table is that 
+       second place. Another common trend that we can see from the table is that
        the ages 80+ group are the least to get Covid-19. This is most likely due
        to because young adult still goes out normally while elders are more
        likely to stay home.</p>"),
