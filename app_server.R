@@ -19,15 +19,14 @@ server <- function(input, output) {
     table <- summary_df(wa_df)
     table <- table %>%
       rename("Confirmed Cases" = cases,
-             "Ages 0-19" = Age.0.19, 
-             "Ages 20-34" = Age.20.34, 
-             "Ages 35-49" = Age.35.49, 
-             "Ages 50-64" = Age.50.64, 
-             "Ages 65-79" = Age.65.79, 
+             "Ages 0-19" = Age.0.19,
+             "Ages 20-34" = Age.20.34,
+             "Ages 35-49" = Age.35.49,
+             "Ages 50-64" = Age.50.64,
+             "Ages 65-79" = Age.65.79,
              "Ages 80+" = Age.80.)
     return(table)
   })
-  
 
   # Interactive map for the world for page one
   output$world_map <- renderLeaflet({
@@ -128,7 +127,7 @@ server <- function(input, output) {
       scale_fill_continuous(low = "White", high = "Red",
                             name = "Total Cases") +
       blank_theme
-    
+
     # Apply ggplotly function to make it interactive
     map <- ggplotly(county_plot)
     return(map)
