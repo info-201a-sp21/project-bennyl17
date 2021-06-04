@@ -18,6 +18,6 @@ library(mapproj)
 # Source the UI and Server files
 source("app_ui.R")
 source("app_server.R")
-lint
+
 # Create the shiny application
 shinyApp(ui = ui, server = server)

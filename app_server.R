@@ -27,10 +27,6 @@ server <- function(input, output) {
              "Ages 80+" = Age.80.)
     return(table)
   })
-<<<<<<< HEAD
-
-=======
->>>>>>> 9423fc34c6d6dfd3b52651b7ada5c6adf05f5ced
 
   # Interactive map for the world for page one
   output$world_map <- renderLeaflet({
